@@ -5,30 +5,30 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://hunk200.github.io">
+  <link rel="dns-prefetch" href="http://example.com">
   <title>GAMES101 Lecture07 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="画家算法从远至近进行渲染，新画的东西覆盖旧的。复杂情况不适用(如下所示，无法判断三个三角形的深度关系)    深度缓存 最常用 核心：对像素进行排序，记录像素所在几何表现的最浅深度深度信息（深度图z-buffer）。 重要：z永远取负向。越小越近，越大越远。具体算法：123456789&#x2F;&#x2F;初始化所有深度缓存为无限for(each triangle T)    for(each sample(x,y">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GAMES101 Lecture07">
-<meta property="og:url" content="https://hunk200.github.io/2022/05/27/GAMES101-Lecture07/index.html">
+<meta property="og:url" content="http://example.com/2022/05/27/GAMES101-Lecture07/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="画家算法从远至近进行渲染，新画的东西覆盖旧的。复杂情况不适用(如下所示，无法判断三个三角形的深度关系)    深度缓存 最常用 核心：对像素进行排序，记录像素所在几何表现的最浅深度深度信息（深度图z-buffer）。 重要：z永远取负向。越小越近，越大越远。具体算法：123456789&#x2F;&#x2F;初始化所有深度缓存为无限for(each triangle T)    for(each sample(x,y">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://hunk200.github.io/.io//05/27/GAMES101-Lecture07/1.png">
-<meta property="og:image" content="https://hunk200.github.io/.io//2.png">
-<meta property="og:image" content="https://hunk200.github.io/.io//3.png">
-<meta property="og:image" content="https://hunk200.github.io/.io//4.png">
-<meta property="og:image" content="https://hunk200.github.io/.io//5.png">
-<meta property="og:image" content="https://hunk200.github.io/.io//6.png">
-<meta property="og:image" content="https://hunk200.github.io/.io//7.png">
-<meta property="og:image" content="https://hunk200.github.io/.io//8.png">
-<meta property="og:image" content="https://hunk200.github.io/.io//9.png">
+<meta property="og:image" content="http://example.com/2022/05/27/GAMES101-Lecture07/05/27/GAMES101-Lecture07/1.png">
+<meta property="og:image" content="http://example.com/2022/05/27/GAMES101-Lecture07/2.png">
+<meta property="og:image" content="http://example.com/2022/05/27/GAMES101-Lecture07/3.png">
+<meta property="og:image" content="http://example.com/2022/05/27/GAMES101-Lecture07/4.png">
+<meta property="og:image" content="http://example.com/2022/05/27/GAMES101-Lecture07/5.png">
+<meta property="og:image" content="http://example.com/2022/05/27/GAMES101-Lecture07/6.png">
+<meta property="og:image" content="http://example.com/2022/05/27/GAMES101-Lecture07/7.png">
+<meta property="og:image" content="http://example.com/2022/05/27/GAMES101-Lecture07/8.png">
+<meta property="og:image" content="http://example.com/2022/05/27/GAMES101-Lecture07/9.png">
 <meta property="article:published_time" content="2022-05-27T06:13:05.000Z">
 <meta property="article:modified_time" content="2022-05-27T08:13:50.759Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hunk200.github.io/.io//05/27/GAMES101-Lecture07/1.png">
+<meta name="twitter:image" content="http://example.com/2022/05/27/GAMES101-Lecture07/05/27/GAMES101-Lecture07/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -185,14 +185,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="画家算法"><a href="#画家算法" class="headerlink" title="画家算法"></a>画家算法</h2><p>从远至近进行渲染，新画的东西覆盖旧的。<br>复杂情况不适用(如下所示，无法判断三个三角形的深度关系)</p>
-<img src="/.io//05/27/GAMES101-Lecture07/1.png" class>
+<img src="/2022/05/27/GAMES101-Lecture07/05/27/GAMES101-Lecture07/1.png" class>
 <!-- ![1](1.png) -->
 
 <h2 id="深度缓存"><a href="#深度缓存" class="headerlink" title="深度缓存"></a>深度缓存</h2><ul>
 <li>最常用</li>
 <li>核心：对像素进行排序，记录像素所在几何表现的最浅深度深度信息（深度图z-buffer）。</li>
 <li>重要：z永远取负向。越小越近，越大越远。<br>具体算法：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//初始化所有深度缓存为无限</span><br><span class="line">for(each triangle T)</span><br><span class="line">    for(each sample(x,y,z)in T)</span><br><span class="line">        if(z &lt; zbuffer[x,y]&gt;)</span><br><span class="line">            framebuffer[x,y]=rgb;   //更新颜色</span><br><span class="line">            zbuffer[x,y]=z;          //更新深度</span><br><span class="line">        else</span><br><span class="line">            ;   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-实例：<br><img src="/.io//2.png" alt="2"><blockquote>
+实例：<br><img src="/2022/05/27/GAMES101-Lecture07/2.png" alt="2"><blockquote>
 <p>复杂度：对于任何一个像素，只记录当前像素的最小值，不需要排序，对于n个三角形具有O(n)的复杂度</p>
 </blockquote>
 </li>
@@ -202,21 +202,21 @@
 </ul>
 <h2 id="Shading"><a href="#Shading" class="headerlink" title="Shading"></a>Shading</h2><p>对不同的物体运用不同材质的过程称为着色</p>
 <h3 id="Blinn-Phong反射模型"><a href="#Blinn-Phong反射模型" class="headerlink" title="Blinn-Phong反射模型"></a>Blinn-Phong反射模型</h3><blockquote>
-<p>高光、漫反射、全局光照<br><img src="/.io//3.png" alt="3"></p>
+<p>高光、漫反射、全局光照<br><img src="/2022/05/27/GAMES101-Lecture07/3.png" alt="3"></p>
 </blockquote>
 <p>考虑光照基于shading point考虑<br>定义如下内容</p>
 <blockquote>
-<p><img src="/.io//4.png" alt="4"><br>法线 n<br>观测方向 v<br>光照方向 l<br>向量都是单位向量</p>
+<p><img src="/2022/05/27/GAMES101-Lecture07/4.png" alt="4"><br>法线 n<br>观测方向 v<br>光照方向 l<br>向量都是单位向量</p>
 </blockquote>
 <p>着色具有局部性，只考虑自己，不考虑其他物体的存在，例如阴影。</p>
-<h3 id="漫反射"><a href="#漫反射" class="headerlink" title="漫反射"></a>漫反射</h3><p>光线均匀的反射到任意方向<br><img src="/.io//5.png" alt="5"></p>
-<p>兰伯特余弦定理：只考虑单位面积上的反射情况，旋转时能保证面积始终不变<br><img src="/.io//6.png" alt="6"></p>
-<p>能量辐射<br>考虑每个时刻光的能量平均分布于一个球壳上,每个球壳的光的能量强度与距离成反比<br><img src="/.io//7.png" alt="7"></p>
-<p>漫反射着色<br><img src="/.io//8.png" alt="8"></p>
+<h3 id="漫反射"><a href="#漫反射" class="headerlink" title="漫反射"></a>漫反射</h3><p>光线均匀的反射到任意方向<br><img src="/2022/05/27/GAMES101-Lecture07/5.png" alt="5"></p>
+<p>兰伯特余弦定理：只考虑单位面积上的反射情况，旋转时能保证面积始终不变<br><img src="/2022/05/27/GAMES101-Lecture07/6.png" alt="6"></p>
+<p>能量辐射<br>考虑每个时刻光的能量平均分布于一个球壳上,每个球壳的光的能量强度与距离成反比<br><img src="/2022/05/27/GAMES101-Lecture07/7.png" alt="7"></p>
+<p>漫反射着色<br><img src="/2022/05/27/GAMES101-Lecture07/8.png" alt="8"></p>
 <blockquote>
 <p>$k_d$ 扩散系数，表示这个点的本身的颜色能量吸收率，可以是单通道的点或者多通道的向量<br>$L_d$ 漫反射光<br>$I&#x2F;r^2$ 抵达shading point的光的能量<br>$ max(0, n l)$ 光线与法线的夹角余弦值，若小于0，没有物理意义，直接当作0</p>
 </blockquote>
-<p>左上角有点光源，从左到右能量依次增加，故吸收能量多，更亮。<br><img src="/.io//9.png" alt="9"></p>
+<p>左上角有点光源，从左到右能量依次增加，故吸收能量多，更亮。<br><img src="/2022/05/27/GAMES101-Lecture07/9.png" alt="9"></p>
 
       
 
@@ -296,7 +296,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://hunk200.github.io/2022/05/27/GAMES101-Lecture07/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/27/GAMES101-Lecture07/" alt="微信分享二维码">
     </div>
 </div>
 
