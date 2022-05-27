@@ -172,11 +172,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="画家算法"><a href="#画家算法" class="headerlink" title="画家算法"></a>画家算法</h2><p>从远至近进行渲染，新画的东西覆盖旧的。<br>复杂情况不适用(如下所示，无法判断三个三角形的深度关系)<br><img src="/.com//2022/05/27/GAMES101-Lecture07/1.png1.png" alt="1"></p>
+        <h2 id="画家算法"><a href="#画家算法" class="headerlink" title="画家算法"></a>画家算法</h2><p>从远至近进行渲染，新画的东西覆盖旧的。<br>复杂情况不适用(如下所示，无法判断三个三角形的深度关系)</p>
+<img src="/.com//05/27/GAMES101-Lecture07/1.png" class>
+<!-- ![1](1.png) -->
+
 <h2 id="深度缓存"><a href="#深度缓存" class="headerlink" title="深度缓存"></a>深度缓存</h2><ul>
 <li>最常用</li>
 <li>核心：对像素进行排序，记录像素所在几何表现的最浅深度深度信息（深度图z-buffer）。</li>
-<li>重要：z永远取负向。越小越近，越大越远。<br>具体算法：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//初始化所有深度缓存为无限</span><br><span class="line">for(each triangle T)</span><br><span class="line">    for(each sample(x,y,z)in T)</span><br><span class="line">        if(z &lt; zbuffer[x,y]&gt;)</span><br><span class="line">            framebuffer[x,y]=rgb;   //更新颜色</span><br><span class="line">            zbuffer[x,y]=z;          //更新深度</span><br><span class="line">        else</span><br><span class="line">            ;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<li>重要：z永远取负向。越小越近，越大越远。<br>具体算法：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//初始化所有深度缓存为无限</span><br><span class="line">for(each triangle T)</span><br><span class="line">    for(each sample(x,y,z)in T)</span><br><span class="line">        if(z &lt; zbuffer[x,y]&gt;)</span><br><span class="line">            framebuffer[x,y]=rgb;   //更新颜色</span><br><span class="line">            zbuffer[x,y]=z;          //更新深度</span><br><span class="line">        else</span><br><span class="line">            ;   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 实例：<br><img src="/.com//2.png" alt="2"><blockquote>
 <p>复杂度：对于任何一个像素，只记录当前像素的最小值，不需要排序，对于n个三角形具有O(n)的复杂度</p>
 </blockquote>
