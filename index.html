@@ -159,7 +159,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/28/GAMES101-Lecture08/">GAMES101 Lecture07</a>
+      <a class="article-title" href="/2022/05/28/GAMES101-Lecture08/">GAMES101 Lecture08</a>
     </h1>
   
 
@@ -172,23 +172,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="着色2"><a href="#着色2" class="headerlink" title="着色2"></a>着色2</h1><h2 id="Blinn-Phong光照模型"><a href="#Blinn-Phong光照模型" class="headerlink" title="Blinn-Phong光照模型"></a>Blinn-Phong光照模型</h2><h3 id="高光"><a href="#高光" class="headerlink" title="高光"></a>高光</h3><p>高光向：观测方向与镜面反射方向相近<br><img src="/2022/05/28/GAMES101-Lecture08/1.png"><br>观测与镜面反射方向的夹角数值上等同于半程向量与法向量的夹角<br><img src="/2022/05/28/GAMES101-Lecture08/2.png"><br>h:半程向量，观测向量与入射向量的一半<br>Ks:镜面反射系数<br>p:限制高光的容忍度，通常在100~200内<br><img src="/2022/05/28/GAMES101-Lecture08/3.png"><br>高光与漫反射效果<br><img src="/2022/05/28/GAMES101-Lecture08/4.png"></p>
-<h3 id="环境光"><a href="#环境光" class="headerlink" title="环境光"></a>环境光</h3><p>环境光与观测方向无关、与法向无关，是个常数，用于保证每个地方都有光线<br><img src="/2022/05/28/GAMES101-Lecture08/5.png"></p>
-<h3 id="Blinn-Phong反射模型"><a href="#Blinn-Phong反射模型" class="headerlink" title="Blinn-Phong反射模型"></a>Blinn-Phong反射模型</h3><p><img src="/2022/05/28/GAMES101-Lecture08/6.png"><br>三个光照相加得到</p>
-<h2 id="着色频率"><a href="#着色频率" class="headerlink" title="着色频率"></a>着色频率</h2><p>从左至右，基于平面，顶点，像素着色<br><img src="/2022/05/28/GAMES101-Lecture08/7.png"></p>
-<h3 id="flat-shading"><a href="#flat-shading" class="headerlink" title="flat shading"></a>flat shading</h3><p>三角形面内仅有一个法向量，效果一般<br><img src="/2022/05/28/GAMES101-Lecture08/8.png"></p>
-<h3 id="gourand-shading"><a href="#gourand-shading" class="headerlink" title="gourand shading"></a>gourand shading</h3><p>顶点通过插值计算法线来进行着色<br><img src="/2022/05/28/GAMES101-Lecture08/9.png"></p>
-<h3 id="Phong-shading"><a href="#Phong-shading" class="headerlink" title="Phong shading"></a>Phong shading</h3><p>基于像素着色<br><img src="/2022/05/28/GAMES101-Lecture08/10.png"><br>效果差距，同行为同一几何形体的不同着色方式，每行几何形体复杂度提升<br><img src="/2022/05/28/GAMES101-Lecture08/11.png"></p>
-<h3 id="顶点法线计算"><a href="#顶点法线计算" class="headerlink" title="顶点法线计算"></a>顶点法线计算</h3><p>顶点的法线认为是该点四周三角形的法线的均值<br><img src="/2022/05/28/GAMES101-Lecture08/12.png"><br>公式：<img src="/2022/05/28/GAMES101-Lecture08/13.png"></p>
-<h3 id="像素法线"><a href="#像素法线" class="headerlink" title="像素法线"></a>像素法线</h3><p>通过顶点法线使用重心坐标计算<br><img src="/2022/05/28/GAMES101-Lecture08/14.png"><br>！法线代表方向应当归一化</p>
-<h2 id="实时渲染管线-Real-time-Rendering-pipeline"><a href="#实时渲染管线-Real-time-Rendering-pipeline" class="headerlink" title="实时渲染管线 Real-time Rendering pipeline"></a>实时渲染管线 Real-time Rendering pipeline</h2><p>图形管线流程<br><img src="/2022/05/28/GAMES101-Lecture08/15.png"><br>1.顶点处理，MVP变换<br><img src="/2022/05/28/GAMES101-Lecture08/16.png"><br>2.光栅化：采样<br><img src="/2022/05/28/GAMES101-Lecture08/17.png"><br>3.片段处理，深度测试<br><img src="/2022/05/28/GAMES101-Lecture08/18.png"><br>4.着色，分为顶点着色与片段着色，前者在顶点处理中解决，后者在片段处理中解决<br><img src="/2022/05/28/GAMES101-Lecture08/19.png"><br>5.纹理映射<br><img src="/2022/05/28/GAMES101-Lecture08/20.png"></p>
-<h3 id="shader"><a href="#shader" class="headerlink" title="shader"></a>shader</h3><p>用于处理每个顶点和像素<br>通用的，循环处理<br>处理像素的成为Vertex shader，处理片段的脚Fragment shader<br>GLSL例子</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">uniform sampler2D myTexture;        //全局变量：纹理</span><br><span class="line">uniform vec3 lightDir;              //全局变量：光照方向</span><br><span class="line">varying vec2 uv;                    //uv纹理坐标</span><br><span class="line">varying vec3 norm;                  //法线</span><br><span class="line">void diffuseShader()</span><br><span class="line">&#123;</span><br><span class="line">    vec3 kd;                        //漫反射系数</span><br><span class="line">    kd = texture2d(myTexturem, uv);             //计算纹理颜色</span><br><span class="line">    kd *= clamp(dot(-lightDir, norm), 0.0, 1.0);    //兰伯特着色模型</span><br><span class="line">    gl_FragColor = vec4(kd, 1.0);           //输出颜色</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实时Shdaer项目例子：Snail Shader Program<br><a target="_blank" rel="noopener" href="https://youtu.be/XuSnLbB1j6E">https://youtu.be/XuSnLbB1j6E</a></p>
-<h3 id="GPUs"><a href="#GPUs" class="headerlink" title="GPUs"></a>GPUs</h3><p>硬件层面实现光栅化<br>高度并行化处理器<br><img src="/2022/05/28/GAMES101-Lecture08/21.png"></p>
-<h2 id="纹理映射-Texture-Mapping"><a href="#纹理映射-Texture-Mapping" class="headerlink" title="纹理映射 Texture Mapping"></a>纹理映射 Texture Mapping</h2><p>任何一个三维物体的表面都是2维的<br><img src="/2022/05/28/GAMES101-Lecture08/22.png"></p>
-<h3 id="UV"><a href="#UV" class="headerlink" title="UV"></a>UV</h3><p>纹理上定义的坐标。UV的范围：通常为U,V &#x3D; [ 0 , 1 ]<br><img src="/2022/05/28/GAMES101-Lecture08/23.png"><br>可以应用道到不同的物体表面，可以重复多次使用<br>tiled textures 纹理的无缝合成<br><img src="/2022/05/28/GAMES101-Lecture08/24.png"></p>
-
+        <h1 id="着色2"><a href="#着色2" class="headerlink" title="着色2"></a>着色2</h1><h2 id="Blinn-Phong光照模型"><a href="#Blinn-Phong光照模型" class="headerlink" title="Blinn-Phong光照模型"></a>Blinn-Phong光照模型</h2>
+        
+          <a class="article-more-a" href="/2022/05/28/GAMES101-Lecture08/#more">more >></a>
+        
       
 
       
@@ -250,39 +237,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="画家算法"><a href="#画家算法" class="headerlink" title="画家算法"></a>画家算法</h2><p>从远至近进行渲染，新画的东西覆盖旧的。<br>复杂情况不适用(如下所示，无法判断三个三角形的深度关系)</p>
-<!-- <img src="/2022/05/27/GAMES101-Lecture07/1.png" class=""> -->
-<p><img src="/2022/05/27/GAMES101-Lecture07/1.png" alt="1"></p>
-<h2 id="深度缓存"><a href="#深度缓存" class="headerlink" title="深度缓存"></a>深度缓存</h2><ul>
-<li>最常用</li>
-<li>核心：对像素进行排序，记录像素所在几何表现的最浅深度深度信息（深度图z-buffer）。</li>
-<li>重要：z永远取负向。越小越近，越大越远。<br>具体算法：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//初始化所有深度缓存为无限</span><br><span class="line">for(each triangle T)</span><br><span class="line">    for(each sample(x,y,z)in T)</span><br><span class="line">        if(z &lt; zbuffer[x,y]&gt;)</span><br><span class="line">            framebuffer[x,y]=rgb;   //更新颜色</span><br><span class="line">            zbuffer[x,y]=z;          //更新深度</span><br><span class="line">        else</span><br><span class="line">            ;   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-实例：<br><img src="/2022/05/27/GAMES101-Lecture07/2.png" alt="2"><blockquote>
-<p>复杂度：对于任何一个像素，只记录当前像素的最小值，不需要排序，对于n个三角形具有O(n)的复杂度</p>
-</blockquote>
-</li>
-<li>假设没有两个几何拥有相同深度，那么该算法的渲染结果和顺序无关。（理论上该假设成立，浮点数运算有误差值。实际是可能出现完全相同的深度值。）</li>
-<li>对于MASS可能需要对每个采样点进行深度缓存</li>
-<li>Z-buffer处理不了透明物体的深度，透明物体需要特殊处理</li>
-</ul>
-<h2 id="Shading"><a href="#Shading" class="headerlink" title="Shading"></a>Shading</h2><p>对不同的物体运用不同材质的过程称为着色</p>
-<h3 id="Blinn-Phong反射模型"><a href="#Blinn-Phong反射模型" class="headerlink" title="Blinn-Phong反射模型"></a>Blinn-Phong反射模型</h3><blockquote>
-<p>高光、漫反射、全局光照<br><img src="/2022/05/27/GAMES101-Lecture07/3.png" alt="3"></p>
-</blockquote>
-<p>考虑光照基于shading point考虑<br>定义如下内容</p>
-<blockquote>
-<p><img src="/2022/05/27/GAMES101-Lecture07/4.png" alt="4"><br>法线 n<br>观测方向 v<br>光照方向 l<br>向量都是单位向量</p>
-</blockquote>
-<p>着色具有局部性，只考虑自己，不考虑其他物体的存在，例如阴影。</p>
-<h3 id="漫反射"><a href="#漫反射" class="headerlink" title="漫反射"></a>漫反射</h3><p>光线均匀的反射到任意方向<br><img src="/2022/05/27/GAMES101-Lecture07/5.png" alt="5"></p>
-<p>兰伯特余弦定理：只考虑单位面积上的反射情况，旋转时能保证面积始终不变<br><img src="/2022/05/27/GAMES101-Lecture07/6.png" alt="6"></p>
-<p>能量辐射<br>考虑每个时刻光的能量平均分布于一个球壳上,每个球壳的光的能量强度与距离成反比<br><img src="/2022/05/27/GAMES101-Lecture07/7.png" alt="7"></p>
-<p>漫反射着色<br><img src="/2022/05/27/GAMES101-Lecture07/8.png" alt="8"></p>
-<blockquote>
-<p>$k_d$ 扩散系数，表示这个点的本身的颜色能量吸收率，可以是单通道的点或者多通道的向量<br>$L_d$ 漫反射光<br>$I&#x2F;r^2$ 抵达shading point的光的能量<br>$ max(0, n l)$ 光线与法线的夹角余弦值，若小于0，没有物理意义，直接当作0</p>
-</blockquote>
-<p>左上角有点光源，从左到右能量依次增加，故吸收能量多，更亮。<br><img src="/2022/05/27/GAMES101-Lecture07/9.png" alt="9"></p>
-
+        <h1 id="着色1"><a href="#着色1" class="headerlink" title="着色1"></a>着色1</h1><h2 id="画家算法"><a href="#画家算法" class="headerlink" title="画家算法"></a>画家算法</h2>
+        
+          <a class="article-more-a" href="/2022/05/27/GAMES101-Lecture07/#more">more >></a>
+        
       
 
       

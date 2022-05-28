@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>GAMES101 Lecture07 | Hexo</title>
+  <title>GAMES101 Lecture08 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="着色2Blinn-Phong光照模型高光高光向：观测方向与镜面反射方向相近观测与镜面反射方向的夹角数值上等同于半程向量与法向量的夹角h:半程向量，观测向量与入射向量的一半Ks:镜面反射系数p:限制高光的容忍度，通常在100~200内高光与漫反射效果 环境光环境光与观测方向无关、与法向无关，是个常数，用于保证每个地方都有光线 Blinn-Phong反射模型三个光照相加得到 着色频率从左至右，基于平面">
+  <meta name="description" content="着色2Blinn-Phong光照模型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GAMES101 Lecture07">
+<meta property="og:title" content="GAMES101 Lecture08">
 <meta property="og:url" content="http://example.com/2022/05/28/GAMES101-Lecture08/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="着色2Blinn-Phong光照模型高光高光向：观测方向与镜面反射方向相近观测与镜面反射方向的夹角数值上等同于半程向量与法向量的夹角h:半程向量，观测向量与入射向量的一半Ks:镜面反射系数p:限制高光的容忍度，通常在100~200内高光与漫反射效果 环境光环境光与观测方向无关、与法向无关，是个常数，用于保证每个地方都有光线 Blinn-Phong反射模型三个光照相加得到 着色频率从左至右，基于平面">
+<meta property="og:description" content="着色2Blinn-Phong光照模型">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/05/28/GAMES101-Lecture08/1.png">
 <meta property="og:image" content="http://example.com/2022/05/28/GAMES101-Lecture08/2.png">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="http://example.com/2022/05/28/GAMES101-Lecture08/23.png">
 <meta property="og:image" content="http://example.com/2022/05/28/GAMES101-Lecture08/24.png">
 <meta property="article:published_time" content="2022-05-28T07:15:00.000Z">
-<meta property="article:modified_time" content="2022-05-28T08:04:56.714Z">
+<meta property="article:modified_time" content="2022-05-28T08:53:07.564Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/05/28/GAMES101-Lecture08/1.png">
@@ -186,7 +186,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      GAMES101 Lecture07
+      GAMES101 Lecture08
     </h1>
   
 
@@ -199,7 +199,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="着色2"><a href="#着色2" class="headerlink" title="着色2"></a>着色2</h1><h2 id="Blinn-Phong光照模型"><a href="#Blinn-Phong光照模型" class="headerlink" title="Blinn-Phong光照模型"></a>Blinn-Phong光照模型</h2><h3 id="高光"><a href="#高光" class="headerlink" title="高光"></a>高光</h3><p>高光向：观测方向与镜面反射方向相近<br><img src="/2022/05/28/GAMES101-Lecture08/1.png"><br>观测与镜面反射方向的夹角数值上等同于半程向量与法向量的夹角<br><img src="/2022/05/28/GAMES101-Lecture08/2.png"><br>h:半程向量，观测向量与入射向量的一半<br>Ks:镜面反射系数<br>p:限制高光的容忍度，通常在100~200内<br><img src="/2022/05/28/GAMES101-Lecture08/3.png"><br>高光与漫反射效果<br><img src="/2022/05/28/GAMES101-Lecture08/4.png"></p>
+        <h1 id="着色2"><a href="#着色2" class="headerlink" title="着色2"></a>着色2</h1><h2 id="Blinn-Phong光照模型"><a href="#Blinn-Phong光照模型" class="headerlink" title="Blinn-Phong光照模型"></a>Blinn-Phong光照模型</h2><span id="more"></span>
+<h3 id="高光"><a href="#高光" class="headerlink" title="高光"></a>高光</h3><p>高光向：观测方向与镜面反射方向相近<br><img src="/2022/05/28/GAMES101-Lecture08/1.png"><br>观测与镜面反射方向的夹角数值上等同于半程向量与法向量的夹角<br><img src="/2022/05/28/GAMES101-Lecture08/2.png"><br>h:半程向量，观测向量与入射向量的一半<br>Ks:镜面反射系数<br>p:限制高光的容忍度，通常在100~200内<br><img src="/2022/05/28/GAMES101-Lecture08/3.png"><br>高光与漫反射效果<br><img src="/2022/05/28/GAMES101-Lecture08/4.png"></p>
 <h3 id="环境光"><a href="#环境光" class="headerlink" title="环境光"></a>环境光</h3><p>环境光与观测方向无关、与法向无关，是个常数，用于保证每个地方都有光线<br><img src="/2022/05/28/GAMES101-Lecture08/5.png"></p>
 <h3 id="Blinn-Phong反射模型"><a href="#Blinn-Phong反射模型" class="headerlink" title="Blinn-Phong反射模型"></a>Blinn-Phong反射模型</h3><p><img src="/2022/05/28/GAMES101-Lecture08/6.png"><br>三个光照相加得到</p>
 <h2 id="着色频率"><a href="#着色频率" class="headerlink" title="着色频率"></a>着色频率</h2><p>从左至右，基于平面，顶点，像素着色<br><img src="/2022/05/28/GAMES101-Lecture08/7.png"></p>
