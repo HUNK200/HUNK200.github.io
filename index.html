@@ -156,6 +156,104 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-GAMES101-Lecture11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/31/GAMES101-Lecture11/">GAMES101-Lecture11</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/31/GAMES101-Lecture11/" class="archive-article-date">
+  	<time datetime="2022-05-31T02:37:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="几何2"><a href="#几何2" class="headerlink" title="几何2"></a>几何2</h1><h2 id="显式几何"><a href="#显式几何" class="headerlink" title="显式几何"></a>显式几何</h2><p><strong>点云</strong><br>一堆点<br>理论上可以表示任何几何形体<br>通常可以转化为其他多边形面<br>点云密度低则难以绘画</p>
+<p><strong>多边形面</strong><br><img src="/2022/05/31/GAMES101-Lecture11/1.png"><br>最为广泛的运用<br>容易模拟<br>相比点云有更多的结构</p>
+<p><strong>Wavefront Object File .obj文件格式</strong><br>图形学研究的常用格式，把点坐标、法线、纹理坐标和他们的连接关系放在一起<br>v、vn表示点与向量坐标<br>vt为纹理坐标<br>f表示点的关系，分别表示点，纹理，坐标</p>
+<h2 id="曲线"><a href="#曲线" class="headerlink" title="曲线"></a>曲线</h2><p><strong>贝塞尔曲线 Bezier Curves</strong><br>通过一系列的控制点表示曲线，在起点与终点确定的前提下，根据其他控制点的位置，绘制出控制点走向的平滑曲线，n阶贝塞尔曲线有n+1个控制点，下面为3阶贝塞尔<br><img src="/2022/05/31/GAMES101-Lecture11/2.png"></p>
+<ul>
+<li>德卡斯特里奥算法de Casteljau Algorithm<br>  取每个控制点的连线，并在每条连线的t(取值范围0-1)位置生成新的控制点并用新的控制点继续连线，直到最后一条连线的t位置就是整段贝塞尔曲线的t(取值范围0-1)点坐标。<br>  <img src="/2022/05/31/GAMES101-Lecture11/3.png"></li>
+<li>cubic bezier curve 三阶贝塞尔曲线，最常用<br><img src="/2022/05/31/GAMES101-Lecture11/4.png"></li>
+<li>计算公式 Algebraic Formula<br>任意一个点都是起始点的一个线性组合，组合的系数为一个二项分布的多项式，称为<strong>伯恩斯坦多项式 Bernstein polynormial</strong><br><img src="/2022/05/31/GAMES101-Lecture11/5.png"></li>
+<li>性质：<ul>
+<li>曲线必定经过起点和终点</li>
+<li>对于三个控制点的曲线，即cubic bezier curve，起始点与终点的斜率满足<img src="/2022/05/31/GAMES101-Lecture11/6.png"></li>
+<li>仿射变换后的贝塞尔曲线不会受到影响</li>
+<li>凸包性质：凸包：包围所有点的最小的凸多边形。任何一个贝塞尔曲线一定在控制点的凸包内。</li>
+</ul>
+</li>
+<li>高阶贝塞尔曲线存在的问题 Piecewise Bezier Curves<ul>
+<li>多个控制点的贝塞尔曲线不好控制</li>
+<li>对于这个问题，选择多个贝塞尔曲线组合而成，通常每个贝塞尔曲线选择cubic Bezier</li>
+<li>只有当前一段最后的导数与后一段的导数大小与方向一致，才认为是光滑曲线</li>
+<li>c0连续 几何连续：两段曲线首尾相连</li>
+<li>c1连续 切线连续：导数相等，切线共线</li>
+<li>cn连续 曲率连续：n阶导数连续</li>
+</ul>
+</li>
+<li>其他贝塞尔曲线：<ul>
+<li>样条线</li>
+<li>B样条<h2 id="曲面"><a href="#曲面" class="headerlink" title="曲面"></a>曲面</h2></li>
+</ul>
+</li>
+<li>贝塞尔曲面：衍生贝塞尔曲线的定义到曲面上<br><img src="/2022/05/31/GAMES101-Lecture11/7.png"><ul>
+<li>曲面有4x4个控制点获得，每行4个控制点获得一个三阶贝塞尔曲线。</li>
+<li>对获得的4个贝塞尔曲线，在获得同一时刻u的四个点，获得新的贝塞尔曲线，全部连续获得即得到曲面</li>
+<li>贝塞尔曲面上的任意一个点都可以映射到一个2维坐标（u，v)<br><img src="/2022/05/31/GAMES101-Lecture11/8.png"></li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/31/GAMES101-Lecture11/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-GAMES101-Lecture10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
