@@ -15,10 +15,16 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="光线追踪2">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/1.png">
+<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/2.png">
+<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/3.png">
+<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/4.png">
+<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/5.png">
 <meta property="article:published_time" content="2022-06-01T07:11:19.000Z">
-<meta property="article:modified_time" content="2022-06-01T07:49:33.222Z">
+<meta property="article:modified_time" content="2022-06-01T14:03:20.124Z">
 <meta property="article:author" content="HUNK">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -179,42 +185,78 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="光线追踪2"><a href="#光线追踪2" class="headerlink" title="光线追踪2"></a>光线追踪2</h1><span id="more"></span>
-<h2 id="通过AABB加速求交"><a href="#通过AABB加速求交" class="headerlink" title="通过AABB加速求交"></a>通过AABB加速求交</h2><h3 id="uniform-spatial-partitions"><a href="#uniform-spatial-partitions" class="headerlink" title="uniform spatial partitions"></a>uniform spatial partitions</h3><ol>
+<h2 id="通过AABB加速求交"><a href="#通过AABB加速求交" class="headerlink" title="通过AABB加速求交"></a>通过AABB加速求交</h2><ul>
+<li>均匀网格(Uniform grids)</li>
+<li>空间划分(Spatial partitions)<h3 id="均匀空间划分-uniform-spatial-partitions"><a href="#均匀空间划分-uniform-spatial-partitions" class="headerlink" title="均匀空间划分 uniform spatial partitions"></a>均匀空间划分 uniform spatial partitions</h3></li>
+</ul>
+<ol>
 <li>找到包围盒</li>
 <li>在光追前，画格子</li>
 <li>存储有物体的格子</li>
-<li>将光线投入盒子内，判断格子与光线求交，经过有物体的格子时，判断是否与物体求交</li>
+<li>将光线投入盒子内，判断格子与光线求交，经过有物体的格子时，判断是否与物体求交<br><img src="/2022/06/01/GAMES101-Lecture14/1.png"></li>
 </ol>
 <ul>
-<li>问题：</li>
-<li>格子的数量：C*物体数量</li>
-<li>对于有大量空白的场景不适合格子</li>
+<li>问题：<ul>
+<li>格子太少：没啥用</li>
+<li>格子太密集：效率低</li>
+<li>根据经验算则格子数量 ：C*物体数量，C为常数，通常在3维内取27</li>
+<li>对于有大量空白的场景不适合该方法</li>
+</ul>
+</li>
 </ul>
 <h3 id="空间划分-spatial-partitions"><a href="#空间划分-spatial-partitions" class="headerlink" title="空间划分 spatial partitions"></a>空间划分 spatial partitions</h3><ul>
 <li>Oct-Tree 八叉树</li>
 <li>KD-Tree 与八叉树类似，但是每次分割都沿某一轴分，且水平垂直交替分割，3维就是xyz交替划分</li>
-<li>BSP-Tree</li>
+<li>BSP-Tree<br><img src="/2022/06/01/GAMES101-Lecture14/2.png"><h4 id="KD-Tree-预处理"><a href="#KD-Tree-预处理" class="headerlink" title="KD-Tree 预处理"></a>KD-Tree 预处理</h4>KD-Tree将空间划分为一个二叉树结构</li>
+<li>中间节点存储：<ul>
+<li>分割轴：知道沿着那个轴划分</li>
+<li>分割位置：知道划分在哪里</li>
+<li>子节点：中间结点一定有两个子节点</li>
+<li>中间结点不会存储对象</li>
 </ul>
-<h4 id="KD-Tree-预处理"><a href="#KD-Tree-预处理" class="headerlink" title="KD-Tree 预处理"></a>KD-Tree 预处理</h4><p><strong>数据结构</strong></p>
+</li>
+<li>叶子节点存储：<ul>
+<li>对应区域的物体<br><strong>光线最终过程</strong><br>对树结构逐级判断，判断每个节点表示的包围盒是否与光线相交</li>
+</ul>
+</li>
+<li>若相交，判断包围盒内部所有物体是否相交，然后其子节点都需要进一步判断</li>
+<li>不相交则忽略该节点与其子节点<br><img src="/2022/06/01/GAMES101-Lecture14/3.png"></li>
+</ul>
+<p><strong>KD-Tree的缺点</strong></p>
 <ul>
-<li>知道沿着那个轴划分</li>
-<li>知道划分在哪里</li>
-<li>中间结点一定有两个子节点</li>
-<li>物体只存在叶子节点中<br><strong>判定过程</strong></li>
+<li>很难建立，三角形与包围盒是否相交相当困难，尤其是三个顶点不在包围盒内，却又与盒相交的情况</li>
+<li>同一个物体可能会存在多个叶子节点中，导致重复计算<h3 id="物体划分-Object-Partitions-Bounding-BVH"><a href="#物体划分-Object-Partitions-Bounding-BVH" class="headerlink" title="物体划分 Object Partitions Bounding BVH"></a>物体划分 Object Partitions Bounding BVH</h3>BVH是将物体划分为多个部分。将多个三角形划分为一堆一堆的，再分别求不同堆的包围盒。<br><img src="/2022/06/01/GAMES101-Lecture14/4.png"><br><strong>BVH步骤</strong></li>
+<li>寻找包裹所有物体的包围盒</li>
+<li>将物体分为两个子集</li>
+<li>重复寻找子集的包围盒</li>
+<li>在细分到必要时停止</li>
+<li>物体存储与叶子节点中</li>
 </ul>
-<h3 id="物体划分-Object-Partitions-Bounding"><a href="#物体划分-Object-Partitions-Bounding" class="headerlink" title="物体划分 Object Partitions Bounding"></a>物体划分 Object Partitions Bounding</h3><h4 id="BVH"><a href="#BVH" class="headerlink" title="BVH"></a>BVH</h4><ul>
-<li>划分物体方法1：选最长的轴</li>
-<li>方法2：取中间的物体，取编号为中位数的物体，</li>
-<li>快速划分找中位数可以在O(n)的时间内寻找到</li>
-</ul>
-<p>存储：</p>
+<p><strong>节点划分</strong></p>
 <ul>
-<li>中间节点</li>
-<li>叶子节点</li>
+<li>选择一个维度来进行划分操作</li>
+<li>技巧1：选最长的轴分割</li>
+<li>方法2：取中间的物体，取编号为中位数的物体，<ul>
+<li>ps：使用快速选择算法找中位数可以在O(n)的时间内寻找到</li>
+</ul>
+</li>
+</ul>
+<p><strong>存储</strong></p>
+<ul>
+<li>中间节点<ul>
+<li>包围盒</li>
+<li>子节点</li>
+</ul>
+</li>
+<li>叶子节点<ul>
+<li>包围盒</li>
+<li>物体</li>
+</ul>
+</li>
 </ul>
 <p>求交算法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Intersect(Ray ray, BVH node)</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Intersect(Ray ray, BVH node)&#123;</span><br><span class="line">    if(ray misses node.bbox) return;</span><br><span class="line">    if(node is a leaf node)</span><br><span class="line">        test intersection with all objs;</span><br><span class="line">        return closet intersection;</span><br><span class="line">    hit1 = Intersect(ray, node.child1);</span><br><span class="line">    hit2 = Intersect(ray, node.child2);</span><br><span class="line"></span><br><span class="line">    return the closer of hit1, hit2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="空间划分vs物体划分"><a href="#空间划分vs物体划分" class="headerlink" title="空间划分vs物体划分"></a>空间划分vs物体划分</h3><p><img src="/2022/06/01/GAMES101-Lecture14/5.png"></p>
 <h2 id="辐射度量学-basic-radiometry"><a href="#辐射度量学-basic-radiometry" class="headerlink" title="辐射度量学 basic radiometry"></a>辐射度量学 basic radiometry</h2><h3 id="Radiometry-—-Motivation"><a href="#Radiometry-—-Motivation" class="headerlink" title="Radiometry — Motivation"></a>Radiometry — Motivation</h3><p>如何取描述光照<br>对光定义空间上的属性，包括：Radiant flux，intensity， irradiance， radiance<br>Radiomery是物理上对光的准确描述</p>
 <h4 id="Radiant-Energy-and-Flux-Power"><a href="#Radiant-Energy-and-Flux-Power" class="headerlink" title="Radiant Energy and Flux(Power)"></a>Radiant Energy and Flux(Power)</h4><p>定义1：<br>定义2：是单位时间的能量，表示光的亮度<br>flux：单位时间内通过的光的数量</p>
 <h4 id="Radiant-Intensity"><a href="#Radiant-Intensity" class="headerlink" title="Radiant Intensity"></a>Radiant Intensity</h4><p>定义：每个立体角的能量 </p>
