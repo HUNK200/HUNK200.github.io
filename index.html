@@ -156,6 +156,143 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-GAMES101-Lecture12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/31/GAMES101-Lecture12/">GAMES101-Lecture12</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/31/GAMES101-Lecture12/" class="archive-article-date">
+  	<time datetime="2022-05-31T11:48:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="几何3"><a href="#几何3" class="headerlink" title="几何3"></a>几何3</h1><ul>
+<li>细分 mesh subdivision：上采样<br><img src="/2022/05/31/GAMES101-Lecture12/1.png"></li>
+<li>简化 mesh simplification：下采样<br><img src="/2022/05/31/GAMES101-Lecture12/2.png"></li>
+<li>正则化 mesh regularization：网格正规化<br><img src="/2022/05/31/GAMES101-Lecture12/3.png"><h2 id="细分-mesh-subdivision-upsampling"><a href="#细分-mesh-subdivision-upsampling" class="headerlink" title="细分 mesh subdivision(upsampling)"></a>细分 mesh subdivision(upsampling)</h2></li>
+<li>步骤<ol>
+<li>引入更多的三角形（创造新的顶点）</li>
+<li>让三角形的位置变换（改变新顶点和旧顶点）</li>
+</ol>
+</li>
+<li>Loop subdivsion<ul>
+<li>一个三角形拆成四个，每条边取中点作为新点，根据点的权重调整位置</li>
+<li>按照新老顶点区分顶点<ul>
+<li>对于新的顶点，通过旧顶点进行一个加权平均,其中AB为同边的点，CD为不同点</li>
+<li><img src="/2022/05/31/GAMES101-Lecture12/4.png"></li>
+<li>对旧的顶点，定义n为顶点的度，u为一个数，根据u对自身与相邻顶点进行一个加权平均</li>
+<li><img src="/2022/05/31/GAMES101-Lecture12/5.png"></li>
+</ul>
+</li>
+<li>效果<img src="/2022/05/31/GAMES101-Lecture12/6.png"></li>
+</ul>
+</li>
+<li>Catmull-Clark subdivision(General Mesh)<ul>
+<li>定义四边形面与非四边形面</li>
+<li>定义度不为4的点为奇异点</li>
+<li>对每个边取一个中点，对每个面取一个中点,将面中心点与边中点相连</li>
+<li>在第一次细分后，不会在出现新的奇异点</li>
+<li>细分前<img src="/2022/05/31/GAMES101-Lecture12/7.png"></li>
+<li>细分后<img src="/2022/05/31/GAMES101-Lecture12/8.png"></li>
+<li>调整方式：FYI<ul>
+<li>面点和边点<img src="/2022/05/31/GAMES101-Lecture12/9.png"></li>
+<li>线交叉点<img src="/2022/05/31/GAMES101-Lecture12/10.png">其中m为边中点，p为旧点</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="简化-mesh-simplification-downsampling"><a href="#简化-mesh-simplification-downsampling" class="headerlink" title="简化 mesh simplification(downsampling)"></a>简化 mesh simplification(downsampling)</h2><p>目的：减少面的数量 </p>
+<ul>
+<li>边坍缩 collapsing as edge<br><img src="/2022/05/31/GAMES101-Lecture12/11.png"><ul>
+<li>概念：二次误差度量 Quadric Error Metrics：新放置点与关联面的平方和的距离（L2距离）的最小值</li>
+<li>边塌缩算法<ol>
+<li>选择某个网格</li>
+<li>在空间中寻找一个到该网络中所有点的L2距离最小的点</li>
+<li>对所有与p关联的边计算二次误差度量，放入优先队列中</li>
+<li>对L2距离最小的边进行坍缩</li>
+<li>坍缩完后，重新计算边与p的二次误差度量</li>
+<li>重复步骤4，直到所有边坍缩</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><p>阴影是什么：阴影是能被观察者看到，但不能被光源看到的部分。</p>
+<h3 id="阴影贴图-Shadow-Mapping"><a href="#阴影贴图-Shadow-Mapping" class="headerlink" title="阴影贴图 Shadow Mapping"></a>阴影贴图 Shadow Mapping</h3><p>思想：如果有个点不在阴影，说明摄像机看得到点，光源也看得到点<br>shadow Mapping只能处理点光源</p>
+<ol>
+<li>从光源出发渲染，记录看到场景的深度，生成一个深度图<img src="/2022/05/31/GAMES101-Lecture12/12.png"></li>
+<li>从摄像机出发渲染，比较同个点从光源和摄像机渲染的深度是否一致，一致则表示看的到，不一致则表示被阻挡<img src="/2022/05/31/GAMES101-Lecture12/13.png"></li>
+</ol>
+<p>例子：<br>点光源<br><img src="/2022/05/31/GAMES101-Lecture12/14.png"><br>深度图<br><img src="/2022/05/31/GAMES101-Lecture12/15.png"></p>
+<p>问题：精度问题</p>
+<h3 id="shadow-maps的问题"><a href="#shadow-maps的问题" class="headerlink" title="shadow maps的问题"></a>shadow maps的问题</h3><ul>
+<li>数值精度问题：浮点数的判断存在误差<ul>
+<li>解决办法：只判断大于或小于、设置偏差bias，判断实际深度是否大于记录深度加偏差之和。</li>
+</ul>
+</li>
+<li>只能做硬阴影<ul>
+<li><img src="/2022/05/31/GAMES101-Lecture12/16.png"></li>
+<li>硬阴影：边缘硬化，点光源</li>
+<li>软阴影：边缘过渡，非点光源</li>
+<li>umbra和penumbra:本影和半影</li>
+</ul>
+</li>
+<li>开销大：Shadow Mapping要从光源和摄像机处各做一次渲染，开销更大。</li>
+<li>阴影质量基于Shadow map的质量。Shadow map的质量越高，数值精度问题越不明显，则阴影质量越好。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/31/GAMES101-Lecture12/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-GAMES101-Lecture11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -176,43 +313,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="几何2"><a href="#几何2" class="headerlink" title="几何2"></a>几何2</h1><h2 id="显式几何"><a href="#显式几何" class="headerlink" title="显式几何"></a>显式几何</h2><p><strong>点云</strong><br>一堆点<br>理论上可以表示任何几何形体<br>通常可以转化为其他多边形面<br>点云密度低则难以绘画</p>
-<p><strong>多边形面</strong><br><img src="/2022/05/31/GAMES101-Lecture11/1.png"><br>最为广泛的运用<br>容易模拟<br>相比点云有更多的结构</p>
-<p><strong>Wavefront Object File .obj文件格式</strong><br>图形学研究的常用格式，把点坐标、法线、纹理坐标和他们的连接关系放在一起<br>v、vn表示点与向量坐标<br>vt为纹理坐标<br>f表示点的关系，分别表示点，纹理，坐标</p>
-<h2 id="曲线"><a href="#曲线" class="headerlink" title="曲线"></a>曲线</h2><p><strong>贝塞尔曲线 Bezier Curves</strong><br>通过一系列的控制点表示曲线，在起点与终点确定的前提下，根据其他控制点的位置，绘制出控制点走向的平滑曲线，n阶贝塞尔曲线有n+1个控制点，下面为3阶贝塞尔<br><img src="/2022/05/31/GAMES101-Lecture11/2.png"></p>
-<ul>
-<li>德卡斯特里奥算法de Casteljau Algorithm<br>  取每个控制点的连线，并在每条连线的t(取值范围0-1)位置生成新的控制点并用新的控制点继续连线，直到最后一条连线的t位置就是整段贝塞尔曲线的t(取值范围0-1)点坐标。<br>  <img src="/2022/05/31/GAMES101-Lecture11/3.png"></li>
-<li>cubic bezier curve 三阶贝塞尔曲线，最常用<br><img src="/2022/05/31/GAMES101-Lecture11/4.png"></li>
-<li>计算公式 Algebraic Formula<br>任意一个点都是起始点的一个线性组合，组合的系数为一个二项分布的多项式，称为<strong>伯恩斯坦多项式 Bernstein polynormial</strong><br><img src="/2022/05/31/GAMES101-Lecture11/5.png"></li>
-<li>性质：<ul>
-<li>曲线必定经过起点和终点</li>
-<li>对于三个控制点的曲线，即cubic bezier curve，起始点与终点的斜率满足<img src="/2022/05/31/GAMES101-Lecture11/6.png"></li>
-<li>仿射变换后的贝塞尔曲线不会受到影响</li>
-<li>凸包性质：凸包：包围所有点的最小的凸多边形。任何一个贝塞尔曲线一定在控制点的凸包内。</li>
-</ul>
-</li>
-<li>高阶贝塞尔曲线存在的问题 Piecewise Bezier Curves<ul>
-<li>多个控制点的贝塞尔曲线不好控制</li>
-<li>对于这个问题，选择多个贝塞尔曲线组合而成，通常每个贝塞尔曲线选择cubic Bezier</li>
-<li>只有当前一段最后的导数与后一段的导数大小与方向一致，才认为是光滑曲线</li>
-<li>c0连续 几何连续：两段曲线首尾相连</li>
-<li>c1连续 切线连续：导数相等，切线共线</li>
-<li>cn连续 曲率连续：n阶导数连续</li>
-</ul>
-</li>
-<li>其他贝塞尔曲线：<ul>
-<li>样条线</li>
-<li>B样条<h2 id="曲面"><a href="#曲面" class="headerlink" title="曲面"></a>曲面</h2></li>
-</ul>
-</li>
-<li>贝塞尔曲面：衍生贝塞尔曲线的定义到曲面上<br><img src="/2022/05/31/GAMES101-Lecture11/7.png"><ul>
-<li>曲面有4x4个控制点获得，每行4个控制点获得一个三阶贝塞尔曲线。</li>
-<li>对获得的4个贝塞尔曲线，在获得同一时刻u的四个点，获得新的贝塞尔曲线，全部连续获得即得到曲面</li>
-<li>贝塞尔曲面上的任意一个点都可以映射到一个2维坐标（u，v)<br><img src="/2022/05/31/GAMES101-Lecture11/8.png"></li>
-</ul>
-</li>
-</ul>
-
+        <h1 id="几何2"><a href="#几何2" class="headerlink" title="几何2"></a>几何2</h1>
+        
+          <a class="article-more-a" href="/2022/05/31/GAMES101-Lecture11/#more">more >></a>
+        
       
 
       

@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>GAMES101-Lecture11 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="几何2显式几何点云一堆点理论上可以表示任何几何形体通常可以转化为其他多边形面点云密度低则难以绘画 多边形面最为广泛的运用容易模拟相比点云有更多的结构 Wavefront Object File .obj文件格式图形学研究的常用格式，把点坐标、法线、纹理坐标和他们的连接关系放在一起v、vn表示点与向量坐标vt为纹理坐标f表示点的关系，分别表示点，纹理，坐标 曲线贝塞尔曲线 Bezier Curves">
+  <meta name="description" content="几何2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GAMES101-Lecture11">
 <meta property="og:url" content="http://example.com/2022/05/31/GAMES101-Lecture11/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="几何2显式几何点云一堆点理论上可以表示任何几何形体通常可以转化为其他多边形面点云密度低则难以绘画 多边形面最为广泛的运用容易模拟相比点云有更多的结构 Wavefront Object File .obj文件格式图形学研究的常用格式，把点坐标、法线、纹理坐标和他们的连接关系放在一起v、vn表示点与向量坐标vt为纹理坐标f表示点的关系，分别表示点，纹理，坐标 曲线贝塞尔曲线 Bezier Curves">
+<meta property="og:description" content="几何2">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture11/1.png">
 <meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture11/2.png">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture11/7.png">
 <meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture11/8.png">
 <meta property="article:published_time" content="2022-05-31T02:37:12.000Z">
-<meta property="article:modified_time" content="2022-05-31T11:46:09.668Z">
+<meta property="article:modified_time" content="2022-05-31T11:48:11.882Z">
 <meta property="article:author" content="HUNK">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/05/31/GAMES101-Lecture11/1.png">
@@ -187,7 +187,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="几何2"><a href="#几何2" class="headerlink" title="几何2"></a>几何2</h1><h2 id="显式几何"><a href="#显式几何" class="headerlink" title="显式几何"></a>显式几何</h2><p><strong>点云</strong><br>一堆点<br>理论上可以表示任何几何形体<br>通常可以转化为其他多边形面<br>点云密度低则难以绘画</p>
+        <h1 id="几何2"><a href="#几何2" class="headerlink" title="几何2"></a>几何2</h1><span id="more"></span>
+<h2 id="显式几何"><a href="#显式几何" class="headerlink" title="显式几何"></a>显式几何</h2><p><strong>点云</strong><br>一堆点<br>理论上可以表示任何几何形体<br>通常可以转化为其他多边形面<br>点云密度低则难以绘画</p>
 <p><strong>多边形面</strong><br><img src="/2022/05/31/GAMES101-Lecture11/1.png"><br>最为广泛的运用<br>容易模拟<br>相比点云有更多的结构</p>
 <p><strong>Wavefront Object File .obj文件格式</strong><br>图形学研究的常用格式，把点坐标、法线、纹理坐标和他们的连接关系放在一起<br>v、vn表示点与向量坐标<br>vt为纹理坐标<br>f表示点的关系，分别表示点，纹理，坐标</p>
 <h2 id="曲线"><a href="#曲线" class="headerlink" title="曲线"></a>曲线</h2><p><strong>贝塞尔曲线 Bezier Curves</strong><br>通过一系列的控制点表示曲线，在起点与终点确定的前提下，根据其他控制点的位置，绘制出控制点走向的平滑曲线，n阶贝塞尔曲线有n+1个控制点，下面为3阶贝塞尔<br><img src="/2022/05/31/GAMES101-Lecture11/2.png"></p>
@@ -213,9 +214,11 @@
 </li>
 <li>其他贝塞尔曲线：<ul>
 <li>样条线</li>
-<li>B样条<h2 id="曲面"><a href="#曲面" class="headerlink" title="曲面"></a>曲面</h2></li>
+<li>B样条</li>
 </ul>
 </li>
+</ul>
+<h2 id="曲面"><a href="#曲面" class="headerlink" title="曲面"></a>曲面</h2><ul>
 <li>贝塞尔曲面：衍生贝塞尔曲线的定义到曲面上<br><img src="/2022/05/31/GAMES101-Lecture11/7.png"><ul>
 <li>曲面有4x4个控制点获得，每行4个控制点获得一个三阶贝塞尔曲线。</li>
 <li>对获得的4个贝塞尔曲线，在获得同一时刻u的四个点，获得新的贝塞尔曲线，全部连续获得即得到曲面</li>
@@ -315,6 +318,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/05/31/GAMES101-Lecture12/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          GAMES101-Lecture12
+        
+      </div>
+    </a>
   
   
     <a href="/2022/05/30/GAMES101-Lecture10/" id="article-nav-older" class="article-nav-link-wrap">

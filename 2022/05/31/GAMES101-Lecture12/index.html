@@ -6,15 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>GAMES101-Lecture12 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="几何3 细分 mesh subdivision：上采样 简化 mesh simplification：下采样 正则化 mesh regularization：网格正规化细分 mesh subdivision(upsampling) 步骤 引入更多的三角形（创造新的顶点） 让三角形的位置变换（改变新顶点和旧顶点）   Loop subdivsion 一个三角形拆成四个，每条边取中点作为新点，根据点的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GAMES101-Lecture12">
+<meta property="og:url" content="http://example.com/2022/05/31/GAMES101-Lecture12/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="几何3 细分 mesh subdivision：上采样 简化 mesh simplification：下采样 正则化 mesh regularization：网格正规化细分 mesh subdivision(upsampling) 步骤 引入更多的三角形（创造新的顶点） 让三角形的位置变换（改变新顶点和旧顶点）   Loop subdivsion 一个三角形拆成四个，每条边取中点作为新点，根据点的">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/1.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/2.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/3.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/4.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/5.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/6.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/7.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/8.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/9.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/10.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/11.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/12.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/13.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/14.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/15.png">
+<meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/16.png">
+<meta property="article:published_time" content="2022-05-31T11:48:43.000Z">
+<meta property="article:modified_time" content="2022-06-01T01:57:03.030Z">
 <meta property="article:author" content="HUNK">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,238 +175,230 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-GAMES101-Lecture12" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      GAMES101-Lecture12
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/31/GAMES101-Lecture12/" class="archive-article-date">
+
+        
+        <a href="/2022/05/31/GAMES101-Lecture12/" class="archive-article-date">
   	<time datetime="2022-05-31T11:48:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-31</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/31/GAMES101-Lecture12/">GAMES101-Lecture12</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="几何3"><a href="#几何3" class="headerlink" title="几何3"></a>几何3</h1><ul>
+<li>细分 mesh subdivision：上采样<br><img src="/2022/05/31/GAMES101-Lecture12/1.png"></li>
+<li>简化 mesh simplification：下采样<br><img src="/2022/05/31/GAMES101-Lecture12/2.png"></li>
+<li>正则化 mesh regularization：网格正规化<br><img src="/2022/05/31/GAMES101-Lecture12/3.png"><h2 id="细分-mesh-subdivision-upsampling"><a href="#细分-mesh-subdivision-upsampling" class="headerlink" title="细分 mesh subdivision(upsampling)"></a>细分 mesh subdivision(upsampling)</h2></li>
+<li>步骤<ol>
+<li>引入更多的三角形（创造新的顶点）</li>
+<li>让三角形的位置变换（改变新顶点和旧顶点）</li>
+</ol>
+</li>
+<li>Loop subdivsion<ul>
+<li>一个三角形拆成四个，每条边取中点作为新点，根据点的权重调整位置</li>
+<li>按照新老顶点区分顶点<ul>
+<li>对于新的顶点，通过旧顶点进行一个加权平均,其中AB为同边的点，CD为不同点</li>
+<li><img src="/2022/05/31/GAMES101-Lecture12/4.png"></li>
+<li>对旧的顶点，定义n为顶点的度，u为一个数，根据u对自身与相邻顶点进行一个加权平均</li>
+<li><img src="/2022/05/31/GAMES101-Lecture12/5.png"></li>
+</ul>
+</li>
+<li>效果<img src="/2022/05/31/GAMES101-Lecture12/6.png"></li>
+</ul>
+</li>
+<li>Catmull-Clark subdivision(General Mesh)<ul>
+<li>定义四边形面与非四边形面</li>
+<li>定义度不为4的点为奇异点</li>
+<li>对每个边取一个中点，对每个面取一个中点,将面中心点与边中点相连</li>
+<li>在第一次细分后，不会在出现新的奇异点</li>
+<li>细分前<img src="/2022/05/31/GAMES101-Lecture12/7.png"></li>
+<li>细分后<img src="/2022/05/31/GAMES101-Lecture12/8.png"></li>
+<li>调整方式：FYI<ul>
+<li>面点和边点<img src="/2022/05/31/GAMES101-Lecture12/9.png"></li>
+<li>线交叉点<img src="/2022/05/31/GAMES101-Lecture12/10.png">其中m为边中点，p为旧点</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="简化-mesh-simplification-downsampling"><a href="#简化-mesh-simplification-downsampling" class="headerlink" title="简化 mesh simplification(downsampling)"></a>简化 mesh simplification(downsampling)</h2><p>目的：减少面的数量 </p>
+<ul>
+<li>边坍缩 collapsing as edge<br><img src="/2022/05/31/GAMES101-Lecture12/11.png"><ul>
+<li>概念：二次误差度量 Quadric Error Metrics：新放置点与关联面的平方和的距离（L2距离）的最小值</li>
+<li>边塌缩算法<ol>
+<li>选择某个网格</li>
+<li>在空间中寻找一个到该网络中所有点的L2距离最小的点</li>
+<li>对所有与p关联的边计算二次误差度量，放入优先队列中</li>
+<li>对L2距离最小的边进行坍缩</li>
+<li>坍缩完后，重新计算边与p的二次误差度量</li>
+<li>重复步骤4，直到所有边坍缩</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><p>阴影是什么：阴影是能被观察者看到，但不能被光源看到的部分。</p>
+<h3 id="阴影贴图-Shadow-Mapping"><a href="#阴影贴图-Shadow-Mapping" class="headerlink" title="阴影贴图 Shadow Mapping"></a>阴影贴图 Shadow Mapping</h3><p>思想：如果有个点不在阴影，说明摄像机看得到点，光源也看得到点<br>shadow Mapping只能处理点光源</p>
+<ol>
+<li>从光源出发渲染，记录看到场景的深度，生成一个深度图<img src="/2022/05/31/GAMES101-Lecture12/12.png"></li>
+<li>从摄像机出发渲染，比较同个点从光源和摄像机渲染的深度是否一致，一致则表示看的到，不一致则表示被阻挡<img src="/2022/05/31/GAMES101-Lecture12/13.png"></li>
+</ol>
+<p>例子：<br>点光源<br><img src="/2022/05/31/GAMES101-Lecture12/14.png"><br>深度图<br><img src="/2022/05/31/GAMES101-Lecture12/15.png"></p>
+<p>问题：精度问题</p>
+<h3 id="shadow-maps的问题"><a href="#shadow-maps的问题" class="headerlink" title="shadow maps的问题"></a>shadow maps的问题</h3><ul>
+<li>数值精度问题：浮点数的判断存在误差<ul>
+<li>解决办法：只判断大于或小于、设置偏差bias，判断实际深度是否大于记录深度加偏差之和。</li>
+</ul>
+</li>
+<li>只能做硬阴影<ul>
+<li><img src="/2022/05/31/GAMES101-Lecture12/16.png"></li>
+<li>硬阴影：边缘硬化，点光源</li>
+<li>软阴影：边缘过渡，非点光源</li>
+<li>umbra和penumbra:本影和半影</li>
+</ul>
+</li>
+<li>开销大：Shadow Mapping要从光源和摄像机处各做一次渲染，开销更大。</li>
+<li>阴影质量基于Shadow map的质量。Shadow map的质量越高，数值精度问题越不明显，则阴影质量越好。</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/31/GAMES101-Lecture12/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/31/GAMES101-Lecture11/" class="archive-article-date">
-  	<time datetime="2022-05-31T02:37:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/05/31/GAMES101-Lecture11/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GAMES101-Lecture11</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/31/GAMES101-Lecture11/">GAMES101-Lecture11</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/30/GAMES101-Lecture10/" class="archive-article-date">
-  	<time datetime="2022-05-30T05:56:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/30/GAMES101-Lecture10/">GAMES101-Lecture10</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/29/GAMES101-Lecture09/" class="archive-article-date">
-  	<time datetime="2022-05-29T07:58:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/29/GAMES101-Lecture09/">GAMES101-Lecture09</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/28/GAMES101-Lecture08/" class="archive-article-date">
-  	<time datetime="2022-05-28T07:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/28/GAMES101-Lecture08/">GAMES101 Lecture08</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/27/GAMES101-Lecture07/" class="archive-article-date">
-  	<time datetime="2022-05-27T06:13:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/27/GAMES101-Lecture07/">GAMES101 Lecture07</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/26/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2022-05-26T07:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/26/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">第一篇博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/26/hello-world/" class="archive-article-date">
-  	<time datetime="2022-05-26T07:51:16.339Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -408,8 +421,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
