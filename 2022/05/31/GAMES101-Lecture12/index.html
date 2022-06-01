@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>GAMES101-Lecture12 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="几何3 细分 mesh subdivision：上采样 简化 mesh simplification：下采样 正则化 mesh regularization：网格正规化细分 mesh subdivision(upsampling) 步骤 引入更多的三角形（创造新的顶点） 让三角形的位置变换（改变新顶点和旧顶点）   Loop subdivsion 一个三角形拆成四个，每条边取中点作为新点，根据点的">
+  <meta name="description" content="几何3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GAMES101-Lecture12">
 <meta property="og:url" content="http://example.com/2022/05/31/GAMES101-Lecture12/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="几何3 细分 mesh subdivision：上采样 简化 mesh simplification：下采样 正则化 mesh regularization：网格正规化细分 mesh subdivision(upsampling) 步骤 引入更多的三角形（创造新的顶点） 让三角形的位置变换（改变新顶点和旧顶点）   Loop subdivsion 一个三角形拆成四个，每条边取中点作为新点，根据点的">
+<meta property="og:description" content="几何3">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/1.png">
 <meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/2.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/15.png">
 <meta property="og:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/16.png">
 <meta property="article:published_time" content="2022-05-31T11:48:43.000Z">
-<meta property="article:modified_time" content="2022-06-01T01:57:03.030Z">
+<meta property="article:modified_time" content="2022-06-01T01:59:52.007Z">
 <meta property="article:author" content="HUNK">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/05/31/GAMES101-Lecture12/1.png">
@@ -195,7 +195,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="几何3"><a href="#几何3" class="headerlink" title="几何3"></a>几何3</h1><ul>
+        <h1 id="几何3"><a href="#几何3" class="headerlink" title="几何3"></a>几何3</h1><span id="more"></span>
+<ul>
 <li>细分 mesh subdivision：上采样<br><img src="/2022/05/31/GAMES101-Lecture12/1.png"></li>
 <li>简化 mesh simplification：下采样<br><img src="/2022/05/31/GAMES101-Lecture12/2.png"></li>
 <li>正则化 mesh regularization：网格正规化<br><img src="/2022/05/31/GAMES101-Lecture12/3.png"><h2 id="细分-mesh-subdivision-upsampling"><a href="#细分-mesh-subdivision-upsampling" class="headerlink" title="细分 mesh subdivision(upsampling)"></a>细分 mesh subdivision(upsampling)</h2></li>
@@ -254,7 +255,6 @@
 <li>从摄像机出发渲染，比较同个点从光源和摄像机渲染的深度是否一致，一致则表示看的到，不一致则表示被阻挡<img src="/2022/05/31/GAMES101-Lecture12/13.png"></li>
 </ol>
 <p>例子：<br>点光源<br><img src="/2022/05/31/GAMES101-Lecture12/14.png"><br>深度图<br><img src="/2022/05/31/GAMES101-Lecture12/15.png"></p>
-<p>问题：精度问题</p>
 <h3 id="shadow-maps的问题"><a href="#shadow-maps的问题" class="headerlink" title="shadow maps的问题"></a>shadow maps的问题</h3><ul>
 <li>数值精度问题：浮点数的判断存在误差<ul>
 <li>解决办法：只判断大于或小于、设置偏差bias，判断实际深度是否大于记录深度加偏差之和。</li>
@@ -362,6 +362,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/06/01/GAMES101-Lecture13/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          GAMES101-Lecture13
+        
+      </div>
+    </a>
   
   
     <a href="/2022/05/31/GAMES101-Lecture11/" id="article-nav-older" class="article-nav-link-wrap">
