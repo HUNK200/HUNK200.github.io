@@ -6,34 +6,43 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>GAMES101-Lecture14 | Hexo</title>
+  <title>GAMES101-Lecture15 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="光线追踪2">
+  <meta name="description" content="光线追踪3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GAMES101-Lecture14">
-<meta property="og:url" content="http://example.com/2022/06/01/GAMES101-Lecture14/index.html">
+<meta property="og:title" content="GAMES101-Lecture15">
+<meta property="og:url" content="http://example.com/2022/06/02/GAMES101-Lecture15/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="光线追踪2">
+<meta property="og:description" content="光线追踪3">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/1.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/2.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/3.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/4.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/5.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/6.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/7.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/8.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/9.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/10.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/11.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/12.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/13.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/14.png">
-<meta property="article:published_time" content="2022-06-01T07:11:19.000Z">
-<meta property="article:modified_time" content="2022-06-02T02:06:02.715Z">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/1.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/2.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/3.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/4.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/5.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/6.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/7.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/8.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/9.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/10.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/11.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/12.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/13.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/14.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/15.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/16.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/17.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/18.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/19.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/20.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/21.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/22.png">
+<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/23.png">
+<meta property="article:published_time" content="2022-06-02T02:05:47.000Z">
+<meta property="article:modified_time" content="2022-06-02T06:30:22.473Z">
 <meta property="article:author" content="HUNK">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/1.png">
+<meta name="twitter:image" content="http://example.com/2022/06/02/GAMES101-Lecture15/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -173,105 +182,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-GAMES101-Lecture14" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-GAMES101-Lecture15" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      GAMES101-Lecture14
+      GAMES101-Lecture15
     </h1>
   
 
         
-        <a href="/2022/06/01/GAMES101-Lecture14/" class="archive-article-date">
-  	<time datetime="2022-06-01T07:11:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-01</time>
+        <a href="/2022/06/02/GAMES101-Lecture15/" class="archive-article-date">
+  	<time datetime="2022-06-02T02:05:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="光线追踪2"><a href="#光线追踪2" class="headerlink" title="光线追踪2"></a>光线追踪2</h1><span id="more"></span>
-<h2 id="通过AABB加速求交"><a href="#通过AABB加速求交" class="headerlink" title="通过AABB加速求交"></a>通过AABB加速求交</h2><ul>
-<li>均匀网格(Uniform grids)</li>
-<li>空间划分(Spatial partitions)<h3 id="均匀空间划分-uniform-spatial-partitions"><a href="#均匀空间划分-uniform-spatial-partitions" class="headerlink" title="均匀空间划分 uniform spatial partitions"></a>均匀空间划分 uniform spatial partitions</h3></li>
+        <h1 id="光线追踪3"><a href="#光线追踪3" class="headerlink" title="光线追踪3"></a>光线追踪3</h1><span id="more"></span>
+<h2 id="辐射度量学剩余内容-Radiometry"><a href="#辐射度量学剩余内容-Radiometry" class="headerlink" title="辐射度量学剩余内容 Radiometry"></a>辐射度量学剩余内容 Radiometry</h2><h3 id="Irradiance"><a href="#Irradiance" class="headerlink" title="Irradiance"></a>Irradiance</h3><ul>
+<li>辐照度：单位面积的能量（计算能量的光需要与面垂直，不垂直做投影）单位lux<img src="/2022/06/02/GAMES101-Lecture15/1.png"></li>
+<li>朗伯余弦定律<br>Irradiance中的单位面积必须要和光线垂直，不垂直需要把面积投影到光线的垂直方向上（即直接算单位面积法线分量的光）<br><img src="/2022/06/02/GAMES101-Lecture15/2.png"></li>
+<li>基于Irradiance的能量衰减理解：假设光的辐射通量均匀的角分布，则对于任意半径的球上，立体角对应的能量不衰减，因此randiant Intensity不衰减，但是球面增大，单位面积的能量衰减<br>  <img src="/2022/06/02/GAMES101-Lecture15/3.png"><h3 id="Radiance"><a href="#Radiance" class="headerlink" title="Radiance"></a>Radiance</h3></li>
+<li>光线传播的属性，与光有关的量</li>
+<li>渲染计算辐射Radiance</li>
+<li>辐射(Radiance)或亮度(luminance)：是指一个表面在每单位立体角、每单位投影面积上所发射(emitted)、反射(reflected)、透射(transmitted)或接收(received)的辐射通量(功率)。单位为尼特<img src="/2022/06/02/GAMES101-Lecture15/4.png"><br>其中需要进行两次微分，cosθ为方向到表面的投影角度</li>
+<li>Irradiance、Intensity、Radiance的关系：<ul>
+<li>辐射强度 Intensity：单位立体角的辐射通量</li>
+<li>辐照度 Irradiance：单位投影面积的辐射通量</li>
+<li>辐射 Radiance：可以理解为单位投影面积的辐射强度或者是单位立体角的辐照度</li>
 </ul>
-<ol>
-<li>找到包围盒</li>
-<li>在光追前，画格子</li>
-<li>存储有物体的格子</li>
-<li>将光线投入盒子内，判断格子与光线求交，经过有物体的格子时，判断是否与物体求交<br><img src="/2022/06/01/GAMES101-Lecture14/1.png"></li>
-</ol>
-<ul>
-<li>问题：<ul>
-<li>格子太少：没啥用</li>
-<li>格子太密集：效率低</li>
-<li>根据经验算则格子数量 ：C*物体数量，C为常数，通常在3维内取27</li>
-<li>对于有大量空白的场景不适合该方法</li>
+</li>
+<li>入射辐射 Incident Radiance：指到达表面的单位立体角的辐照度，即沿着给定光线到达表面的光<img src="/2022/06/02/GAMES101-Lecture15/5.png"></li>
+<li>出射辐射 Exiting Radiance：离开表面的单位投影面积的辐射强度。<img src="/2022/06/02/GAMES101-Lecture15/6.png"><br>Radiance在Irradiance加了方向</li>
+<li>辐照度 Irradiance vs 辐射Radiance：<ul>
+<li>Irradiance：dA区域接受的总能量</li>
+<li>Radiance：dA区域沿dW方向接受的能量</li>
+<li>Radiance按区域积分即得到Irradiance</li>
+<li><img src="/2022/06/02/GAMES101-Lecture15/7.png"></li>
 </ul>
 </li>
 </ul>
-<h3 id="空间划分-spatial-partitions"><a href="#空间划分-spatial-partitions" class="headerlink" title="空间划分 spatial partitions"></a>空间划分 spatial partitions</h3><ul>
-<li>Oct-Tree 八叉树</li>
-<li>KD-Tree 与八叉树类似，但是每次分割都沿某一轴分，且水平垂直交替分割，3维就是xyz交替划分</li>
-<li>BSP-Tree<br><img src="/2022/06/01/GAMES101-Lecture14/2.png"><h4 id="KD-Tree-预处理"><a href="#KD-Tree-预处理" class="headerlink" title="KD-Tree 预处理"></a>KD-Tree 预处理</h4>KD-Tree将空间划分为一个二叉树结构</li>
-<li>中间节点存储：<ul>
-<li>分割轴：知道沿着那个轴划分</li>
-<li>分割位置：知道划分在哪里</li>
-<li>子节点：中间结点一定有两个子节点</li>
-<li>中间结点不会存储对象</li>
+<h3 id="双向反射分布函数-BRDF-Bidirectional-Reflectance-Distribution-Function"><a href="#双向反射分布函数-BRDF-Bidirectional-Reflectance-Distribution-Function" class="headerlink" title="双向反射分布函数(BRDF) Bidirectional Reflectance Distribution Function"></a>双向反射分布函数(BRDF) Bidirectional Reflectance Distribution Function</h3><ul>
+<li>双向反射分布函数：有多少能量的方向入射在反射的不同方向上的能量如何分布</li>
+<li>BRDF描述Irradiance向各个方向的分配过程<img src="/2022/06/02/GAMES101-Lecture15/8.png">从wi方向射入的反射到wr方向的光线的能量为Lr</li>
+<li>对于每个入射方向都会对应【入射方向，折射点，出射方向】这样一个BRDF，把每一个方向的入射光线的贡献相加<h3 id="反射方程-reflection-Equation"><a href="#反射方程-reflection-Equation" class="headerlink" title="反射方程 reflection Equation"></a>反射方程 reflection Equation</h3><img src="/2022/06/02/GAMES101-Lecture15/9.png"><br>将所有方向的入射光的能量在观测方向的反射的能量的和<br>问题：<br><img src="/2022/06/02/GAMES101-Lecture15/10.png"></li>
+<li>反射的radiance不仅由入射光产生，也来自其他表面的反射光</li>
+<li>从某点反射的能量也会作为Irradiance反射到其他表面</li>
+<li>因此存在递归问题，随着光线反射次数的增加，效果会越好</li>
 </ul>
-</li>
-<li>叶子节点存储：<ul>
-<li>对应区域的物体<br><strong>光线最终过程</strong><br>对树结构逐级判断，判断每个节点表示的包围盒是否与光线相交</li>
+<h3 id="渲染方程-Rendering-Equaiton"><a href="#渲染方程-Rendering-Equaiton" class="headerlink" title="渲染方程 Rendering Equaiton"></a>渲染方程 Rendering Equaiton</h3><ul>
+<li>物体存在自己也发光的情况</li>
+<li>面积为半球，因为入射光只可能从物体的一面入射</li>
+<li>渲染方程通过一个方程描述所有的光线传播，是现代图形学的基础，所有限制在物体表面的光线传播都满足这一方程</li>
+<li>反射光 &#x3D; 自身发光 + 入射光反射的光<img src="/2022/06/02/GAMES101-Lecture15/11.png"></li>
 </ul>
-</li>
-<li>若相交，判断包围盒内部所有物体是否相交，然后其子节点都需要进一步判断</li>
-<li>不相交则忽略该节点与其子节点<br><img src="/2022/06/01/GAMES101-Lecture14/3.png"></li>
-</ul>
-<p><strong>KD-Tree的缺点</strong></p>
-<ul>
-<li>很难建立，三角形与包围盒是否相交相当困难，尤其是三个顶点不在包围盒内，却又与盒相交的情况</li>
-<li>同一个物体可能会存在多个叶子节点中，导致重复计算<h3 id="物体划分-Object-Partitions-Bounding-BVH"><a href="#物体划分-Object-Partitions-Bounding-BVH" class="headerlink" title="物体划分 Object Partitions Bounding BVH"></a>物体划分 Object Partitions Bounding BVH</h3>BVH是将物体划分为多个部分。将多个三角形划分为一堆一堆的，再分别求不同堆的包围盒。<br><img src="/2022/06/01/GAMES101-Lecture14/4.png"><br><strong>BVH步骤</strong></li>
-<li>寻找包裹所有物体的包围盒</li>
-<li>将物体分为两个子集</li>
-<li>重复寻找子集的包围盒</li>
-<li>在细分到必要时停止</li>
-<li>物体存储与叶子节点中</li>
-</ul>
-<p><strong>节点划分</strong></p>
-<ul>
-<li>选择一个维度来进行划分操作</li>
-<li>技巧1：选最长的轴分割</li>
-<li>方法2：取中间的物体，取编号为中位数的物体，<ul>
-<li>ps：使用快速选择算法找中位数可以在O(n)的时间内寻找到</li>
+<h3 id="渲染方程的理解与进一步简化"><a href="#渲染方程的理解与进一步简化" class="headerlink" title="渲染方程的理解与进一步简化"></a>渲染方程的理解与进一步简化</h3><ul>
+<li>单一光源<img src="/2022/06/02/GAMES101-Lecture15/12.png"></li>
+<li>复数光源<img src="/2022/06/02/GAMES101-Lecture15/13.png"></li>
+<li>面光源<img src="/2022/06/02/GAMES101-Lecture15/14.png"></li>
+<li>其他面的反射光源<img src="/2022/06/02/GAMES101-Lecture15/15.png"></li>
+<li>简化<ul>
+<li><img src="/2022/06/02/GAMES101-Lecture15/16.png"></li>
+<li>算子简化<img src="/2022/06/02/GAMES101-Lecture15/17.png"></li>
+<li>级数表示<img src="/2022/06/02/GAMES101-Lecture15/18.png">k表示几次反射</li>
 </ul>
 </li>
 </ul>
-<p><strong>存储</strong></p>
-<ul>
-<li>中间节点<ul>
-<li>包围盒</li>
-<li>子节点</li>
+<h2 id="概率论概述"><a href="#概率论概述" class="headerlink" title="概率论概述"></a>概率论概述</h2><ul>
+<li>随机变量 Randowm Variables <img src="/2022/06/02/GAMES101-Lecture15/19.png"></li>
+<li>概率<img src="/2022/06/02/GAMES101-Lecture15/20.png">概率都大于0，且和为1</li>
+<li>数学期望<img src="/2022/06/02/GAMES101-Lecture15/21.png"></li>
+<li>连续情况，概率密度函数(PDF)<img src="/2022/06/02/GAMES101-Lecture15/22.png">期望用积分计算</li>
+<li>函数形式的期望<img src="/2022/06/02/GAMES101-Lecture15/23.png"></li>
 </ul>
-</li>
-<li>叶子节点<ul>
-<li>包围盒</li>
-<li>物体</li>
-</ul>
-</li>
-</ul>
-<p>求交算法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Intersect(Ray ray, BVH node)&#123;</span><br><span class="line">    if(ray misses node.bbox) return;</span><br><span class="line">    if(node is a leaf node)</span><br><span class="line">        test intersection with all objs;</span><br><span class="line">        return closet intersection;</span><br><span class="line">    hit1 = Intersect(ray, node.child1);</span><br><span class="line">    hit2 = Intersect(ray, node.child2);</span><br><span class="line"></span><br><span class="line">    return the closer of hit1, hit2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="空间划分vs物体划分"><a href="#空间划分vs物体划分" class="headerlink" title="空间划分vs物体划分"></a>空间划分vs物体划分</h3><p><img src="/2022/06/01/GAMES101-Lecture14/5.png"></p>
-<h2 id="辐射度量学-basic-radiometry"><a href="#辐射度量学-basic-radiometry" class="headerlink" title="辐射度量学 basic radiometry"></a>辐射度量学 basic radiometry</h2><h3 id="Radiometry-—-Motivation"><a href="#Radiometry-—-Motivation" class="headerlink" title="Radiometry — Motivation"></a>Radiometry — Motivation</h3><p>如何取描述光照<br>对光定义空间上的属性，包括：Radiant flux，intensity， irradiance， radiance<br>Radiomery是物理上对光的准确描述</p>
-<h4 id="Radiant-Energy-and-Flux-Power"><a href="#Radiant-Energy-and-Flux-Power" class="headerlink" title="Radiant Energy and Flux(Power)"></a>Radiant Energy and Flux(Power)</h4><p>辐射能 Radiant energy：电磁辐射的能量（Q），单位为焦耳<img src="/2022/06/01/GAMES101-Lecture14/6.png"><br>辐射通量（功率）Radiant flux(power)：是单位时间内释放(emmitted)、反射(reflected)、透射(transmitted)、接受(received)的能量，表示光的亮度，单位为W或lm<img src="/2022/06/01/GAMES101-Lecture14/7.png"><br>flux：单位时间内通过观光器的光子的数量</p>
-<h4 id="Radiant-Intensity、Irradiance、Radiance"><a href="#Radiant-Intensity、Irradiance、Radiance" class="headerlink" title="Radiant Intensity、Irradiance、Radiance"></a>Radiant Intensity、Irradiance、Radiance</h4><p>辐射能 Radiant Intensity：辐射(发光)强度是单位立体角(solid angle)由点光源发出的功率(power)，单位是堪培拉<br><img src="/2022/06/01/GAMES101-Lecture14/8.png"></p>
-<p>角度Angle：弧长除以半径，圆的弧度值为2Π<img src="/2022/06/01/GAMES101-Lecture14/9.png"><br>立体角Solid angle：球面的面积除以半径的平方，球呃立体角为4Π<img src="/2022/06/01/GAMES101-Lecture14/10.png"><br>微分立体角 differential solid angels:<img src="/2022/06/01/GAMES101-Lecture14/11.png"><br>其中dA表示圆上的很小的一个块面积<br>球面立体角的推导：通过微分立体角积分而来<img src="/2022/06/01/GAMES101-Lecture14/12.png"></p>
-<p>方向向量w <img src="/2022/06/01/GAMES101-Lecture14/13.png"></p>
-<p>各项同性点源 Isotropic Point Source:Intensity 为光源在任何方向上的强度，将每个立体角方向的Randiant Intensity积分可以得到randiant flux<br><img src="/2022/06/01/GAMES101-Lecture14/14.png"></p>
 
       
 
@@ -351,7 +338,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/01/GAMES101-Lecture14/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/02/GAMES101-Lecture15/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -365,18 +352,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/06/02/GAMES101-Lecture15/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          GAMES101-Lecture15
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/06/01/GAMES101-Lecture13/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GAMES101-Lecture13</div>
+    <a href="/2022/06/01/GAMES101-Lecture14/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GAMES101-Lecture14</div>
       <i class="icon-circle-right"></i>
     </a>
   

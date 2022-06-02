@@ -6,34 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>GAMES101-Lecture14 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="光线追踪2">
-<meta property="og:type" content="article">
-<meta property="og:title" content="GAMES101-Lecture14">
-<meta property="og:url" content="http://example.com/2022/06/01/GAMES101-Lecture14/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="光线追踪2">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/1.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/2.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/3.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/4.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/5.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/6.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/7.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/8.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/9.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/10.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/11.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/12.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/13.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/14.png">
-<meta property="article:published_time" content="2022-06-01T07:11:19.000Z">
-<meta property="article:modified_time" content="2022-06-02T02:06:02.715Z">
 <meta property="article:author" content="HUNK">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/06/01/GAMES101-Lecture14/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -173,129 +154,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-GAMES101-Lecture14" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      GAMES101-Lecture14
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/26/hello-world/">Hello World</a>
     </h1>
   
 
         
-        <a href="/2022/06/01/GAMES101-Lecture14/" class="archive-article-date">
-  	<time datetime="2022-06-01T07:11:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-01</time>
+        <a href="/2022/05/26/hello-world/" class="archive-article-date">
+  	<time datetime="2022-05-26T07:51:16.339Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="光线追踪2"><a href="#光线追踪2" class="headerlink" title="光线追踪2"></a>光线追踪2</h1><span id="more"></span>
-<h2 id="通过AABB加速求交"><a href="#通过AABB加速求交" class="headerlink" title="通过AABB加速求交"></a>通过AABB加速求交</h2><ul>
-<li>均匀网格(Uniform grids)</li>
-<li>空间划分(Spatial partitions)<h3 id="均匀空间划分-uniform-spatial-partitions"><a href="#均匀空间划分-uniform-spatial-partitions" class="headerlink" title="均匀空间划分 uniform spatial partitions"></a>均匀空间划分 uniform spatial partitions</h3></li>
-</ul>
-<ol>
-<li>找到包围盒</li>
-<li>在光追前，画格子</li>
-<li>存储有物体的格子</li>
-<li>将光线投入盒子内，判断格子与光线求交，经过有物体的格子时，判断是否与物体求交<br><img src="/2022/06/01/GAMES101-Lecture14/1.png"></li>
-</ol>
-<ul>
-<li>问题：<ul>
-<li>格子太少：没啥用</li>
-<li>格子太密集：效率低</li>
-<li>根据经验算则格子数量 ：C*物体数量，C为常数，通常在3维内取27</li>
-<li>对于有大量空白的场景不适合该方法</li>
-</ul>
-</li>
-</ul>
-<h3 id="空间划分-spatial-partitions"><a href="#空间划分-spatial-partitions" class="headerlink" title="空间划分 spatial partitions"></a>空间划分 spatial partitions</h3><ul>
-<li>Oct-Tree 八叉树</li>
-<li>KD-Tree 与八叉树类似，但是每次分割都沿某一轴分，且水平垂直交替分割，3维就是xyz交替划分</li>
-<li>BSP-Tree<br><img src="/2022/06/01/GAMES101-Lecture14/2.png"><h4 id="KD-Tree-预处理"><a href="#KD-Tree-预处理" class="headerlink" title="KD-Tree 预处理"></a>KD-Tree 预处理</h4>KD-Tree将空间划分为一个二叉树结构</li>
-<li>中间节点存储：<ul>
-<li>分割轴：知道沿着那个轴划分</li>
-<li>分割位置：知道划分在哪里</li>
-<li>子节点：中间结点一定有两个子节点</li>
-<li>中间结点不会存储对象</li>
-</ul>
-</li>
-<li>叶子节点存储：<ul>
-<li>对应区域的物体<br><strong>光线最终过程</strong><br>对树结构逐级判断，判断每个节点表示的包围盒是否与光线相交</li>
-</ul>
-</li>
-<li>若相交，判断包围盒内部所有物体是否相交，然后其子节点都需要进一步判断</li>
-<li>不相交则忽略该节点与其子节点<br><img src="/2022/06/01/GAMES101-Lecture14/3.png"></li>
-</ul>
-<p><strong>KD-Tree的缺点</strong></p>
-<ul>
-<li>很难建立，三角形与包围盒是否相交相当困难，尤其是三个顶点不在包围盒内，却又与盒相交的情况</li>
-<li>同一个物体可能会存在多个叶子节点中，导致重复计算<h3 id="物体划分-Object-Partitions-Bounding-BVH"><a href="#物体划分-Object-Partitions-Bounding-BVH" class="headerlink" title="物体划分 Object Partitions Bounding BVH"></a>物体划分 Object Partitions Bounding BVH</h3>BVH是将物体划分为多个部分。将多个三角形划分为一堆一堆的，再分别求不同堆的包围盒。<br><img src="/2022/06/01/GAMES101-Lecture14/4.png"><br><strong>BVH步骤</strong></li>
-<li>寻找包裹所有物体的包围盒</li>
-<li>将物体分为两个子集</li>
-<li>重复寻找子集的包围盒</li>
-<li>在细分到必要时停止</li>
-<li>物体存储与叶子节点中</li>
-</ul>
-<p><strong>节点划分</strong></p>
-<ul>
-<li>选择一个维度来进行划分操作</li>
-<li>技巧1：选最长的轴分割</li>
-<li>方法2：取中间的物体，取编号为中位数的物体，<ul>
-<li>ps：使用快速选择算法找中位数可以在O(n)的时间内寻找到</li>
-</ul>
-</li>
-</ul>
-<p><strong>存储</strong></p>
-<ul>
-<li>中间节点<ul>
-<li>包围盒</li>
-<li>子节点</li>
-</ul>
-</li>
-<li>叶子节点<ul>
-<li>包围盒</li>
-<li>物体</li>
-</ul>
-</li>
-</ul>
-<p>求交算法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Intersect(Ray ray, BVH node)&#123;</span><br><span class="line">    if(ray misses node.bbox) return;</span><br><span class="line">    if(node is a leaf node)</span><br><span class="line">        test intersection with all objs;</span><br><span class="line">        return closet intersection;</span><br><span class="line">    hit1 = Intersect(ray, node.child1);</span><br><span class="line">    hit2 = Intersect(ray, node.child2);</span><br><span class="line"></span><br><span class="line">    return the closer of hit1, hit2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="空间划分vs物体划分"><a href="#空间划分vs物体划分" class="headerlink" title="空间划分vs物体划分"></a>空间划分vs物体划分</h3><p><img src="/2022/06/01/GAMES101-Lecture14/5.png"></p>
-<h2 id="辐射度量学-basic-radiometry"><a href="#辐射度量学-basic-radiometry" class="headerlink" title="辐射度量学 basic radiometry"></a>辐射度量学 basic radiometry</h2><h3 id="Radiometry-—-Motivation"><a href="#Radiometry-—-Motivation" class="headerlink" title="Radiometry — Motivation"></a>Radiometry — Motivation</h3><p>如何取描述光照<br>对光定义空间上的属性，包括：Radiant flux，intensity， irradiance， radiance<br>Radiomery是物理上对光的准确描述</p>
-<h4 id="Radiant-Energy-and-Flux-Power"><a href="#Radiant-Energy-and-Flux-Power" class="headerlink" title="Radiant Energy and Flux(Power)"></a>Radiant Energy and Flux(Power)</h4><p>辐射能 Radiant energy：电磁辐射的能量（Q），单位为焦耳<img src="/2022/06/01/GAMES101-Lecture14/6.png"><br>辐射通量（功率）Radiant flux(power)：是单位时间内释放(emmitted)、反射(reflected)、透射(transmitted)、接受(received)的能量，表示光的亮度，单位为W或lm<img src="/2022/06/01/GAMES101-Lecture14/7.png"><br>flux：单位时间内通过观光器的光子的数量</p>
-<h4 id="Radiant-Intensity、Irradiance、Radiance"><a href="#Radiant-Intensity、Irradiance、Radiance" class="headerlink" title="Radiant Intensity、Irradiance、Radiance"></a>Radiant Intensity、Irradiance、Radiance</h4><p>辐射能 Radiant Intensity：辐射(发光)强度是单位立体角(solid angle)由点光源发出的功率(power)，单位是堪培拉<br><img src="/2022/06/01/GAMES101-Lecture14/8.png"></p>
-<p>角度Angle：弧长除以半径，圆的弧度值为2Π<img src="/2022/06/01/GAMES101-Lecture14/9.png"><br>立体角Solid angle：球面的面积除以半径的平方，球呃立体角为4Π<img src="/2022/06/01/GAMES101-Lecture14/10.png"><br>微分立体角 differential solid angels:<img src="/2022/06/01/GAMES101-Lecture14/11.png"><br>其中dA表示圆上的很小的一个块面积<br>球面立体角的推导：通过微分立体角积分而来<img src="/2022/06/01/GAMES101-Lecture14/12.png"></p>
-<p>方向向量w <img src="/2022/06/01/GAMES101-Lecture14/13.png"></p>
-<p>各项同性点源 Isotropic Point Source:Intensity 为光源在任何方向上的强度，将每个立体角方向的Randiant Intensity积分可以得到randiant flux<br><img src="/2022/06/01/GAMES101-Lecture14/14.png"></p>
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -304,84 +200,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/26/hello-world/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/01/GAMES101-Lecture14/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2022/06/02/GAMES101-Lecture15/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          GAMES101-Lecture15
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/06/01/GAMES101-Lecture13/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GAMES101-Lecture13</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -401,14 +229,12 @@
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -431,8 +257,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
