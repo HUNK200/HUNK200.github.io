@@ -6,30 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>GAMES101-Lecture16 | Hexo</title>
+  <title>GAMES101-HomeWork5 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="光线追踪4">
+  <meta name="description" content="作业5">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GAMES101-Lecture16">
-<meta property="og:url" content="http://example.com/2022/06/02/GAMES101-Lecture16/index.html">
+<meta property="og:title" content="GAMES101-HomeWork5">
+<meta property="og:url" content="http://example.com/2022/06/03/GAMES101-HomeWork5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="光线追踪4">
+<meta property="og:description" content="作业5">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/1.png">
-<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/2.png">
-<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/3.png">
-<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/4.png">
-<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/5.png">
-<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/6.png">
-<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/7.png">
-<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/8.png">
-<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/9.png">
-<meta property="og:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/10.png">
-<meta property="article:published_time" content="2022-06-02T06:33:10.000Z">
-<meta property="article:modified_time" content="2022-06-02T12:35:07.425Z">
+<meta property="og:image" content="http://example.com/2022/06/03/GAMES101-HomeWork5/1.png">
+<meta property="og:image" content="http://example.com/2022/06/03/GAMES101-HomeWork5/2.png">
+<meta property="og:image" content="http://example.com/2022/06/03/GAMES101-HomeWork5/3.png">
+<meta property="og:image" content="http://example.com/2022/06/03/GAMES101-HomeWork5/4.png">
+<meta property="og:image" content="http://example.com/2022/06/03/GAMES101-HomeWork5/5.png">
+<meta property="article:published_time" content="2022-06-03T06:10:40.000Z">
+<meta property="article:modified_time" content="2022-06-03T07:04:36.280Z">
 <meta property="article:author" content="HUNK">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/06/02/GAMES101-Lecture16/1.png">
+<meta name="twitter:image" content="http://example.com/2022/06/03/GAMES101-HomeWork5/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -169,107 +164,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-GAMES101-Lecture16" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-GAMES101-HomeWork5" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      GAMES101-Lecture16
+      GAMES101-HomeWork5
     </h1>
   
 
         
-        <a href="/2022/06/02/GAMES101-Lecture16/" class="archive-article-date">
-  	<time datetime="2022-06-02T06:33:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-02</time>
+        <a href="/2022/06/03/GAMES101-HomeWork5/" class="archive-article-date">
+  	<time datetime="2022-06-03T06:10:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="光线追踪4"><a href="#光线追踪4" class="headerlink" title="光线追踪4"></a>光线追踪4</h1><span id="more"></span>
-<h2 id="蒙特卡洛积分"><a href="#蒙特卡洛积分" class="headerlink" title="蒙特卡洛积分"></a>蒙特卡洛积分</h2><ul>
-<li>在积分域内，以一定的方式采样，通过采样的结果计算近似值，依次达到计算积分的效果</li>
-<li><img src="/2022/06/02/GAMES101-Lecture16/1.png"><br>其中Xi为采样的随机变量，p为采样概率</li>
-<li><img src="/2022/06/02/GAMES101-Lecture16/2.png"><br>采用均分采样的蒙特卡洛估计</li>
-<li>采样越多，误差越小</li>
-<li>要对x积分就必须对x采样</li>
-</ul>
-<h2 id="Path-track"><a href="#Path-track" class="headerlink" title="Path track"></a>Path track</h2><ul>
-<li>选择Path track的原因：Whitted-Style Ray Tracing 有缺陷<ul>
-<li>Whitted-Style的方法：<ul>
-<li>在镜面处反射</li>
-<li>在漫反射平面停止反射</li>
-</ul>
-</li>
-<li>这种方法并不完全正确</li>
-</ul>
-</li>
-<li>Path tracing 基于 Whitted-Style改进而来</li>
-<li>Whitted-Style的问题：<ul>
-<li>GLossy reflection无法正确计算</li>
-<li>漫反射材料无法正确计算，不能做到color bleeding</li>
-</ul>
-</li>
-<li>渲染方程是正确的<ul>
-<li>一个半球面的积分</li>
-<li>且存在递归</li>
-</ul>
-</li>
-</ul>
-<h3 id="简单的蒙特卡洛计算"><a href="#简单的蒙特卡洛计算" class="headerlink" title="简单的蒙特卡洛计算"></a>简单的蒙特卡洛计算</h3><p>单独考虑一个点的直接光照，不考虑自己发光<br>则观测光为<img src="/2022/06/02/GAMES101-Lecture16/3.png">且其中Li均为光源的光照<br><img src="/2022/06/02/GAMES101-Lecture16/4.png"><br>使用均匀的采样，对方向进行采样，得到近似计算<br><img src="/2022/06/02/GAMES101-Lecture16/5.png"><br>基于近似计算实现伪代码算法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">shade(p, wo)</span><br><span class="line">    randomly choose N directions wi~pdf</span><br><span class="line">    Lo = 0.0</span><br><span class="line">    For each wi</span><br><span class="line">        Trace a ray r(p, wi)</span><br><span class="line">        if ray r hit the light</span><br><span class="line">            Lo += (1 / N) * L_i * f_r * cosine / pdf(wi) //L_i为光照强度，f_r为BDSF值</span><br><span class="line">    Return Lo</span><br></pre></td></tr></table></figure>
-<h3 id="进一步复杂化"><a href="#进一步复杂化" class="headerlink" title="进一步复杂化"></a>进一步复杂化</h3><p><img src="/2022/06/02/GAMES101-Lecture16/6.png"><br>将物体的反射光的反向视作光源<br>更新的算法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">shade(p, wo)</span><br><span class="line">    randomly choose N directions wi~pdf</span><br><span class="line">    Lo = 0.0</span><br><span class="line">    For each wi</span><br><span class="line">        Trace a ray r(p, wi)</span><br><span class="line">        if ray r hit the light</span><br><span class="line">            Lo += (1 / N) * L_i * f_r * cosine / pdf(wi) //L_i为光照强度，f_r为BDSF值</span><br><span class="line">        Else If ray r hit object at q</span><br><span class="line">            Lo += (1 / N) * shade(q, -wi) * f_r * cosine / pdf(wi) //计算从当前点观测到的物体的反射光强度，取相反方向是做光源</span><br><span class="line">    Return Lo</span><br></pre></td></tr></table></figure>
-<ul>
-<li>该算法的问题：<ul>
-<li>光线爆炸：需要计算的光线数量呈指数增加<img src="/2022/06/02/GAMES101-Lecture16/7.png"></li>
-<li>解决方法：每次随机光线只取一个</li>
-</ul>
-</li>
-</ul>
-<p>改进算法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">shade(p, wo)</span><br><span class="line">    randomly choose one directions wi~pdf //只取一个光线</span><br><span class="line">    Trace a ray r(p, wi)</span><br><span class="line">    if ray r hit the light</span><br><span class="line">        Return  L_i * f_r * cosine / pdf(wi) </span><br><span class="line">    Else If ray r hit object at q</span><br><span class="line">        Return  shade(q, -wi) * f_r * cosine / pdf(wi)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>该算法的问题：噪声过大</li>
-<li>解决方法：对一个像素取多个路径，求平均辐射即可</li>
-<li><img src="/2022/06/02/GAMES101-Lecture16/8.png"></li>
-</ul>
-<p>加入了平均值算法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ray_generation(camPos, pixel)</span><br><span class="line">    Uniformly choose N sample positions within the pixel //对一个像素取N的观测</span><br><span class="line">    pixel_radiance = 0.0</span><br><span class="line">    For each sample in the pixel</span><br><span class="line">        Shoot a ray r(camPos, cam_to_sample) //从采样点发射观测光</span><br><span class="line">        If ray r hit the scene at p //观测光在击中目标</span><br><span class="line">            pixel_radiance += 1 / N * shade(p, sample_to_cam) //光线追踪</span><br><span class="line">    Return pixel_radiance</span><br></pre></td></tr></table></figure>
-<ul>
-<li>算法的问题：递归的终止条件，不设置终止条件将无限递归</li>
-<li>解决方法：<strong>俄罗斯轮盘赌Russian Roulette(rr)</strong></li>
-<li>设定一个阈值P，在[0,P]内则选中，否则放弃</li>
-<li>对与光线追踪，设定一个P<ul>
-<li>当概率在P内，则计算shading，并加上1&#x2F;P的权值</li>
-<li>反之则直接返回0</li>
-<li>该方法的数学期望为Lo，即最终结果</li>
-</ul>
-</li>
-</ul>
-<p>加入RR的算法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">shade(p, wo)</span><br><span class="line">    Manually specify a probalitity P_RR //取阈值P</span><br><span class="line">    Randomly select ksi in uniform dist in [0, 1] //在[0, 1]随机取值</span><br><span class="line">    if(ksi &gt; P_RR) return 0.0; //在阈值外，则返回0</span><br><span class="line">    randomly choose one directions wi~pdf //只取一个光线</span><br><span class="line">    Trace a ray r(p, wi)</span><br><span class="line">    if ray r hit the light</span><br><span class="line">        Return  L_i * f_r * cosine / pdf(wi) / P_RR //加上权值</span><br><span class="line">    Else If ray r hit object at q</span><br><span class="line">        Return  shade(q, -wi) * f_r * cosine / pdf(wi) / P_RR //加上权值</span><br></pre></td></tr></table></figure>
+        <h1 id="作业5"><a href="#作业5" class="headerlink" title="作业5"></a>作业5</h1><span id="more"></span>
 
-<p>该算法问题：</p>
+<p>光线生成<br>文章：<a target="_blank" rel="noopener" href="https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/generating-camera-rays"></a></p>
+<p>重点翻译：</p>
 <ul>
-<li>结果正确，但是效率低</li>
-<li>原因：对于某个着色点的光线追踪，均匀采样导致大量未找到光源的光线都浪费了</li>
-<li>方法：在光源上采样，将公式中的dw通过dA进行变量替换</li>
+<li>像素的做遍历顺序是从左上到右下</li>
+<li>找到光栅像素和世界坐标的关系</li>
+<li>首先标准化像素位置，将像素位置定义为NDC(Normalized Device Coordiantes)空间内<img src="/2022/06/03/GAMES101-HomeWork5/1.png"></li>
+<li>像素坐标需要加0.5来穿过像素的中心，NDC的范围为[0, 1]</li>
+<li>世界坐标以世界原点为中心，图像左侧像素具有负x坐标，右侧为正x坐标，y轴同理，上方为证，下方为负</li>
+<li>映射NDC从[0, 1]到[-1:1]<img src="/2022/06/03/GAMES101-HomeWork5/2.png"></li>
+<li>上式存在问题，y坐标在x轴上方为负，下方为正，需要取反<img src="/2022/06/03/GAMES101-HomeWork5/3.png"></li>
+<li>此时y的映射随着像素从[0:ImageWidth]到[1:-1]</li>
+<li>当屏幕非正方形是，x需要乘以图像纵横比，这样将x从[-1:1]映射到了[-ratio:ratio]</li>
+<li>最后处理视野，不考虑视野时，屏幕任意点到相机距离为一个单位，但实际相机为一个点，因此不同平面到相机的距离不相等<img src="/2022/06/03/GAMES101-HomeWork5/4.png"></li>
+<li>根据视野角度，可以调整视野内看到的场景的大小。</li>
+<li>最终的像素为<img src="/2022/06/03/GAMES101-HomeWork5/5.png"></li>
 </ul>
-<p>变量替换<br>将面积投影在单位圆上得到立体角<br><img src="/2022/06/02/GAMES101-Lecture16/9.png"><br>带入公式<br><img src="/2022/06/02/GAMES101-Lecture16/10.png"></p>
-<p>将辐射分为两部分计算</p>
-<ol>
-<li>光源（直接光照直接从光源采样计算，不用RR）</li>
-<li>其他反射光（间接光照，RR）</li>
-</ol>
-<p>改进算法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">shade(p, wo)</span><br><span class="line">    # 直接光源</span><br><span class="line">    Uniformly sample the light at x&#x27; (pdf_light = 1 / A)</span><br><span class="line">    L_dir = L_i * f_r * cosθ * cosθ&#x27; / |x&#x27; - p|^2 / pdf_light</span><br><span class="line">    # 间接</span><br><span class="line">    L_indir = 0.0</span><br><span class="line">    Test Russian Roulette with probability P_RR</span><br><span class="line">    Uniformly sample the hemisphere toward wi (pdf_hemi = 1 / 2pi)</span><br><span class="line">    Trace a ray r(p, wi)</span><br><span class="line">    if ray r hit a non-emitting object at q</span><br><span class="line">        L_indir =  shade(q, -wi) * f_r * cosine / pdf_hemi / P_RR</span><br><span class="line">    return L_dir + L_indir</span><br></pre></td></tr></table></figure>
-<p>问题：光源采样需要额外判断是否被遮挡</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 在直接光照内添加如下内容</span><br><span class="line">Shoot a ray from p to x’</span><br><span class="line">If the ray is not blocked in the middle</span><br><span class="line">    L_dir =</span><br></pre></td></tr></table></figure>
-<p><strong>Fear the science</strong></p>
 
       
 
@@ -349,7 +281,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/02/GAMES101-Lecture16/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/03/GAMES101-HomeWork5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -363,18 +295,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/06/03/GAMES101-HomeWork5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/03/GAMES101-Lecture17/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          GAMES101-HomeWork5
+          “GAMES101-Lecture17”
         
       </div>
     </a>
   
   
-    <a href="/2022/06/02/GAMES101-Lecture15/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GAMES101-Lecture15</div>
+    <a href="/2022/06/02/GAMES101-Lecture16/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GAMES101-Lecture16</div>
       <i class="icon-circle-right"></i>
     </a>
   
