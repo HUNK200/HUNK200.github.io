@@ -6,36 +6,42 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>GAMES101-Lecture13 | Hexo</title>
+  <title>GAMES101-Lecture18 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="光线追踪1 Ray Tracing">
+  <meta name="description" content="高级光线传播与材质">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GAMES101-Lecture13">
-<meta property="og:url" content="http://example.com/2022/06/01/GAMES101-Lecture13/index.html">
+<meta property="og:title" content="GAMES101-Lecture18">
+<meta property="og:url" content="http://example.com/2022/06/04/GAMES101-Lecture18/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="光线追踪1 Ray Tracing">
+<meta property="og:description" content="高级光线传播与材质">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/1.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/2.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/3.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/4.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/5.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/6.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/7.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/8.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/9.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/10.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/11.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/12.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/13.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/14.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/15.png">
-<meta property="og:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/16.png">
-<meta property="article:published_time" content="2022-06-01T02:00:37.000Z">
-<meta property="article:modified_time" content="2022-06-05T05:48:15.239Z">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/1.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/2.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/3.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/4.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/5.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/6.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/7.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/8.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/9.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/10.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/11.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/12.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/13.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/14.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/15.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/16.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/17.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/18.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/19.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/20.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/21.png">
+<meta property="og:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/22.png">
+<meta property="article:published_time" content="2022-06-04T07:26:51.000Z">
+<meta property="article:modified_time" content="2022-06-05T06:56:03.046Z">
 <meta property="article:author" content="HUNK">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/06/01/GAMES101-Lecture13/1.png">
+<meta name="twitter:image" content="http://example.com/2022/06/04/GAMES101-Lecture18/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -175,116 +181,112 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-GAMES101-Lecture13" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-GAMES101-Lecture18" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      GAMES101-Lecture13
+      GAMES101-Lecture18
     </h1>
   
 
         
-        <a href="/2022/06/01/GAMES101-Lecture13/" class="archive-article-date">
-  	<time datetime="2022-06-01T02:00:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-01</time>
+        <a href="/2022/06/04/GAMES101-Lecture18/" class="archive-article-date">
+  	<time datetime="2022-06-04T07:26:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="光线追踪1-Ray-Tracing"><a href="#光线追踪1-Ray-Tracing" class="headerlink" title="光线追踪1 Ray Tracing"></a>光线追踪1 Ray Tracing</h1><span id="more"></span>
+        <h1 id="高级光线传播与材质"><a href="#高级光线传播与材质" class="headerlink" title="高级光线传播与材质"></a>高级光线传播与材质</h1><span id="more"></span>
+<h2 id="高级光线传播-Advanced-Light-Transport"><a href="#高级光线传播-Advanced-Light-Transport" class="headerlink" title="高级光线传播 Advanced Light Transport"></a>高级光线传播 Advanced Light Transport</h2><p>有偏与无偏的光线传播：</p>
 <ul>
-<li><p>引入光线追踪的原因：光栅化不好处理全局效果</p>
+<li>无偏：使用蒙特卡洛方法解积分时，不管用多少样本呢、，得到的期望是真实值</li>
+<li>有偏：估计出来的期望与真实值不一样。极限情况下收敛到真实值也是有偏的，称为consistent。对应到渲染结果，如果结果相对真实值较模糊，则是有偏的，但当样本足够多结果接近真实值就是一致的。<h3 id="无偏光线传播-Unbiased-light-transport-methods"><a href="#无偏光线传播-Unbiased-light-transport-methods" class="headerlink" title="无偏光线传播 Unbiased light transport methods"></a>无偏光线传播 Unbiased light transport methods</h3><h4 id="双向路径追踪-Bidirectional-Path-Tracing-BDPT"><a href="#双向路径追踪-Bidirectional-Path-Tracing-BDPT" class="headerlink" title="双向路径追踪 Bidirectional Path Tracing BDPT"></a>双向路径追踪 Bidirectional Path Tracing BDPT</h4></li>
+<li>之前的光线追踪：通过相机发射光线连接光源</li>
+<li>BDPT：双向路径追踪会生成两个不同的子路径，从光源会打出路径，从相机也会打出路径，在着色点把两个路径连起来，就形成了整条路径。</li>
+<li>当光路过于复杂时效果很好</li>
+<li>实现与计算慢<br><img src="/2022/06/04/GAMES101-Lecture18/1.png"></li>
+</ul>
+<h4 id="Metropoils-Light-Transport-MLT"><a href="#Metropoils-Light-Transport-MLT" class="headerlink" title="Metropoils Light Transport MLT"></a>Metropoils Light Transport MLT</h4><ul>
+<li>马尔科夫链：当前有一个样本，马尔科夫链可以生成一个和这个样本靠近的下一个样本，因此与之前的均匀采样不一样。</li>
+<li>MLT应用马尔科夫链，跳过某些样本，生成一系列任意函数的样本，当采样的pdf和要积分的函数形状一致时，效果最好</li>
+<li>核心思想：通过已知的路径得到新的路径<br><img src="/2022/06/04/GAMES101-Lecture18/2.png"></li>
+<li>好处：越难的场景（间接光照较多的场景），使用MLT效果越好。</li>
+<li>坏处：很难在理论上分析其收敛速度，不知道什么时候收敛；所有操作都是局部的，有些地方收敛快，有些地方收敛慢；不能用来渲染动画。<br><img src="/2022/06/04/GAMES101-Lecture18/3.png"></li>
+</ul>
+<h3 id="有偏光线传播-Biased-light-transport-methods"><a href="#有偏光线传播-Biased-light-transport-methods" class="headerlink" title="有偏光线传播 Biased light transport methods"></a>有偏光线传播 Biased light transport methods</h3><h4 id="光子映射-Photon-Mapping"><a href="#光子映射-Photon-Mapping" class="headerlink" title="光子映射 Photon Mapping"></a>光子映射 Photon Mapping</h4><ul>
+<li>适合caustics<br><img src="/2022/06/04/GAMES101-Lecture18/4.png"></li>
+<li>适合复杂光线传播，Specular-Diffuse-Specular（SDS）</li>
+<li>实现方法：<ul>
+<li>光子从光源被源源不断地打出来，经过反射、折射，在diffuse表面会停下来；从摄像机开始往各个方向打多种路径，经过反射折射等也会在diffuse表面停下来。</li>
+<li>局部密度估计：光子分布越集中越亮，因此对任何一个着色点取周围最近的N个光子，找出这N个光子的占据的面积，从而算出密度。</li>
+</ul>
+</li>
+<li>光子映射为什么时有偏的：<ul>
+<li>密度的估计计算与实际不正确</li>
+<li>但是当光子的数量增加，更多的光子覆盖到同一区域，当样本足够做，则估计值越发趋近正确值</li>
+<li>因此为consient方法</li>
+<li>如果在计算密度时选择了固定密度计算，会造成面积内光子数量增加，结果不准确，变为非consisent方法</li>
+</ul>
+</li>
+</ul>
+<h4 id="Vertex-Connection-and-Merging"><a href="#Vertex-Connection-and-Merging" class="headerlink" title="Vertex Connection and Merging"></a>Vertex Connection and Merging</h4><p>将双向路径追踪和光子映射结合起来。<br><img src="/2022/06/04/GAMES101-Lecture18/5.png"></p>
+<h4 id="核心辐射Instant-Radiosity-IR"><a href="#核心辐射Instant-Radiosity-IR" class="headerlink" title="核心辐射Instant Radiosity IR"></a>核心辐射Instant Radiosity IR</h4><p>已经被照亮的表面就认为是光源。光源打出光线，被照亮的地方是新光源VPL，使用所有新光源来照亮着色点。相当于考虑了间接光照。</p>
 <ul>
-<li>软阴影</li>
-<li>光泽反射 glossy reflection</li>
-<li>光线多次反射（间接光照）<br><img src="/2022/06/01/GAMES101-Lecture13/1.png"></li>
+<li>好处：计算快，且对于漫反射表面效果很好</li>
+<li>问题：在缝隙与接缝处会发光；不能做glossy物体<img src="/2022/06/04/GAMES101-Lecture18/6.png"></li>
 </ul>
-</li>
-<li><p>光栅化很快，但是质量相对较低</p>
-</li>
-<li><p>光线追踪很精确，但是很慢</p>
+<h2 id="高级外观建模-Advanced-Appearance-Modeling"><a href="#高级外观建模-Advanced-Appearance-Modeling" class="headerlink" title="高级外观建模 Advanced Appearance Modeling"></a>高级外观建模 Advanced Appearance Modeling</h2><h3 id="非表面模型-Non-Surface-Models"><a href="#非表面模型-Non-Surface-Models" class="headerlink" title="非表面模型 Non-Surface Models"></a>非表面模型 Non-Surface Models</h3><h4 id="散射介质-Participating-Media"><a href="#散射介质-Participating-Media" class="headerlink" title="散射介质 Participating Media"></a>散射介质 Participating Media</h4><ul>
+<li>类似云、雾的介质，光进入介质后会被小颗粒散射到各个方向。<br><img src="/2022/06/04/GAMES101-Lecture18/7.png"></li>
+<li>通过Phase Funcition相位函数定义了散射方向<br><img src="/2022/06/04/GAMES101-Lecture18/8.png"></li>
+<li>渲染：光线往某方向走多远取决于介质的吸收能力，遇到小颗粒会反射，在任何一点都可能改变方向，找到一个与光源相连的路径计算其贡献。<br><img src="/2022/06/04/GAMES101-Lecture18/9.png"></li>
+</ul>
+<h4 id="Hair-Appearance"><a href="#Hair-Appearance" class="headerlink" title="Hair Appearance"></a>Hair Appearance</h4><p>考虑光线与每根头发的作用</p>
 <ul>
-<li>光栅化实时，光线追踪离线</li>
-<li>1帧需要10k CPU core hours</li>
+<li>Kajiya-Kay Model：光线打到头发上散射为一个圆锥，效果一般<br><img src="/2022/06/04/GAMES101-Lecture18/10.png"></li>
+<li>Marschner Model:光线不仅会反射R，传进头发发生折射T，传进头发在穿出TT，穿透反射在穿透TRT<br><img src="/2022/06/04/GAMES101-Lecture18/11.png"><ul>
+<li>将头发当成玻璃圆柱，外层角cuticle，内层叫cortex<br><img src="/2022/06/04/GAMES101-Lecture18/12.png"></li>
+<li>光线跟头发会产生多次散射，渲染很困难，计算量很大。</li>
 </ul>
 </li>
-<li><p><strong>光线的特点</strong></p>
+<li>Fur Apperance<ul>
+<li>不能使用人的头发渲染方法来渲染动物的毛。生物结构上不同。动物的毛的髓质多。</li>
+<li>使用双层圆柱模型来建模动物毛发，更为复杂。<br><img src="/2022/06/04/GAMES101-Lecture18/13.png"> </li>
+<li>计算过程：相比Marschner Model 额外加了两个折射计算<br><img src="/2022/06/04/GAMES101-Lecture18/14.png"></li>
+</ul>
 </li>
 </ul>
-<ol>
-<li>光线沿直线传播</li>
-<li>光线不会相互碰撞</li>
-<li>光线从光源出发到眼中，同时具有可逆性(reciprocity)</li>
-</ol>
-<p><strong>古代西方的理论：眼睛发出感知光线</strong><br><img src="/2022/06/01/GAMES101-Lecture13/2.png"></p>
-<h2 id="光线投射-Ray-Casting"><a href="#光线投射-Ray-Casting" class="headerlink" title="光线投射 Ray Casting"></a>光线投射 Ray Casting</h2><ul>
-<li>从人眼放出“感知光线”，透过投影平面上的像素投射到虚拟世界上的某一点</li>
-<li>从这点向光源连一条线，检查该点是否为阴影</li>
-<li>在这过程中解决了深度缓存问题<br><img src="/2022/06/01/GAMES101-Lecture13/3.png"><br><img src="/2022/06/01/GAMES101-Lecture13/4.png"></li>
+<h4 id="颗粒材料-Granular-material"><a href="#颗粒材料-Granular-material" class="headerlink" title="颗粒材料 Granular material"></a>颗粒材料 Granular material</h4><ul>
+<li>远看时整体，近看时小颗粒堆积</li>
+<li>计算量大，目前没有很好的解决办法<br><img src="/2022/06/04/GAMES101-Lecture18/15.png"></li>
 </ul>
-<h2 id="Whitted-Style-Ray-Tracing"><a href="#Whitted-Style-Ray-Tracing" class="headerlink" title="Whitted-Style Ray Tracing"></a>Whitted-Style Ray Tracing</h2><p>从人眼发出一条感知光线，与玻璃球相交，可以发生镜面反射和折射<br><img src="/2022/06/01/GAMES101-Lecture13/5.png"><br>反射光线和折射光线与物体再次相交，从这些物体都连接一条到光源的线。<br>分别计算光线与物体相交的所有点（下图4个黑点）处的着色，相加就得到了最开始“感知光线”第一个相交点的着色。<br>通过shadow rays计算每个弹射点对于光源的可见性，同时需要考虑距离导致的光线衰弱<br>其中primary ray为有眼睛发出的光线，secondary ray由primary ray弹射后的光线</p>
-<h3 id="光与表面相交计算-Ray-Surface-Intersection"><a href="#光与表面相交计算-Ray-Surface-Intersection" class="headerlink" title="光与表面相交计算 Ray-Surface Intersection"></a>光与表面相交计算 Ray-Surface Intersection</h3><h4 id="光线定义-Ray-Equation"><a href="#光线定义-Ray-Equation" class="headerlink" title="光线定义 Ray Equation"></a>光线定义 Ray Equation</h4><p>光线在数学上为一个射线，由起点和方向定义<br><img src="/2022/06/01/GAMES101-Lecture13/6.png"></p>
-<h4 id="光线与球的交点"><a href="#光线与球的交点" class="headerlink" title="光线与球的交点"></a>光线与球的交点</h4><p>交点同时满足光线方程和球方程<br><img src="/2022/06/01/GAMES101-Lecture13/7.png"><br><img src="/2022/06/01/GAMES101-Lecture13/8.png"></p>
-<h4 id="光线与隐式表面的交点"><a href="#光线与隐式表面的交点" class="headerlink" title="光线与隐式表面的交点"></a>光线与隐式表面的交点</h4><p><img src="/2022/06/01/GAMES101-Lecture13/9.png"></p>
-<h4 id="光线与显式表面的交点-光线与三角形面的交点"><a href="#光线与显式表面的交点-光线与三角形面的交点" class="headerlink" title="光线与显式表面的交点:光线与三角形面的交点"></a>光线与显式表面的交点:光线与三角形面的交点</h4><ul>
-<li><p>选择三角形网格的原因：</p>
+<h3 id="表面模型"><a href="#表面模型" class="headerlink" title="表面模型"></a>表面模型</h3><h4 id="Translucent-Material：Jade"><a href="#Translucent-Material：Jade" class="headerlink" title="Translucent Material：Jade"></a>Translucent Material：Jade</h4><ul>
+<li>次表面散射：光线从一个点进入介质，从中发生折射，从另一个点出来<br><img src="/2022/06/04/GAMES101-Lecture18/16.png"></li>
+<li>BSSRDF:对BRDF的衍生，RDF的所有作用都发生在一个点上，而BSSRDF是由一个方向进来，但是可以从其他方向出去， 进来和出去的点不一定一样。渲染方程要考虑对表面其他地方进入的光线，要对面积进行积分。<img src="/2022/06/04/GAMES101-Lecture18/17.png"><br><img src="/2022/06/04/GAMES101-Lecture18/18.png"></li>
+<li>Dipole Approximation 简化计算：使用两个光源模拟此表面散射<br><img src="/2022/06/04/GAMES101-Lecture18/19.png"></li>
+</ul>
+<h4 id="Cloth"><a href="#Cloth" class="headerlink" title="Cloth"></a>Cloth</h4><ul>
+<li>纤维缠绕成股，股缠绕成线，由线编制为布。<br><img src="/2022/06/04/GAMES101-Lecture18/20.png"></li>
+<li>渲染：<ul>
+<li>根据不同的织法有不同的BRDF</li>
+<li>对于天鹅绒的织物，认为是空间中分布的体积，划分成超级细小的格子，每个格子里知道纤维的分布与朝向，分开来计算。即将织物当作一个体积，知道体积中微小的块的性质。类似云烟的渲染。</li>
+<li>计算量相当大</li>
+<li>暴力渲染每个纤维</li>
+</ul>
+</li>
+</ul>
+<h4 id="Detailed-material-non-statistical-BRDF"><a href="#Detailed-material-non-statistical-BRDF" class="headerlink" title="Detailed material(non-statistical BRDF)"></a>Detailed material(non-statistical BRDF)</h4><p>有些东西渲染过于完美，不够真实，真实的物体表面不够光滑</p>
 <ul>
-<li>三角形网格是最重要的显示表面</li>
-<li>渲染上：可见性，阴影，光照</li>
-<li>几何上：测试某点发出的光线，若光线与物体交点为奇数，则该点在物体内部，否则在外部（推广到3d仍然可行，前提是物体应该为封闭的）</li>
+<li>通过在微表面模型使用不同的法线分布，模拟现实噪声<br><img src="/2022/06/04/GAMES101-Lecture18/21.png"></li>
+<li>渲染过慢</li>
+<li>解决办法：微表面的镜面反射在法线分布复杂的情况下，很难建立有效的的反射光路（光源→表面→摄像机）。因此让一个像素对应很多微表面，把整块范围内的法线分布替换原本光滑的分布。一个像素覆盖的微表面数量不同，会得到不同的效果。<br><img src="/2022/06/04/GAMES101-Lecture18/22.png"></li>
 </ul>
-</li>
-<li><p>具体步骤</p>
-<ul>
-<li>先计算射线与三角面片所在的面的交点</li>
-<li>再计算交点是否在三角形内</li>
-</ul>
-</li>
-<li><p>平面定义：平面基于一条法线和其经过的一个点定义<br><img src="/2022/06/01/GAMES101-Lecture13/10.png"></p>
-</li>
-<li><p>光与平面交点：将光方程带入平面方程<br><img src="/2022/06/01/GAMES101-Lecture13/11.png"></p>
-</li>
-<li><p>MT算法 Moller Trumbore Algorithm：</p>
-<ul>
-<li>使用中心坐标直接计算三角形与光线的交点</li>
-<li>使用克莱默法则求解</li>
-<li>要求结果t为整数，且重心坐标系数都为正数<br><img src="/2022/06/01/GAMES101-Lecture13/12.png"></li>
-</ul>
-</li>
-</ul>
-<h4 id="光线与表面交点的加速"><a href="#光线与表面交点的加速" class="headerlink" title="光线与表面交点的加速"></a>光线与表面交点的加速</h4><ul>
-<li>简单做法：做所有面的光线交点，太慢</li>
-<li>bounding volumes 包围盒&#x2F;包围体积<ul>
-<li>光线先碰到包围盒才能碰到物体</li>
-<li>通常使用长方体，可以抽象为三组不同的对面的交集</li>
-<li>通常使用轴对齐包围盒（Axis-Aligned<br>Bounding Box AABB），长方体的轴沿着坐标轴</li>
-</ul>
-</li>
-<li>判断光与包围盒的交点<ul>
-<li>在2维中:<ul>
-<li>求直线在x&#x3D;x0和x&#x3D;x1上的交点，直线在这对面范围内被标记为红色线段</li>
-<li>求直线在y&#x3D;y0和y&#x3D;y1上的交点</li>
-<li>则两个红色线段的交集是直线在包围盒内的范围<br><img src="/2022/06/01/GAMES101-Lecture13/13.png"></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>在三维中与在二维中类似，对三个对面做相似操作<ul>
-<li>思想：光线只有当进入了所有对面才算进入；只要离开了一个对面就算离开</li>
-<li><img src="/2022/06/01/GAMES101-Lecture13/14.png"></li>
-<li>进入为三个面进入的最大值，退出为三个面的最小值</li>
-<li>光线是直线，需要判断正负</li>
-<li>对于退出小于0的情况，盒在线后，则没有交点</li>
-<li>对于退出大于0，进入小于0的情况，表面射线在盒内，必有交点</li>
-<li>因此，最终结果为退出大于0且进入小于退出<img src="/2022/06/01/GAMES101-Lecture13/15.png"></li>
-</ul>
-</li>
-<li>轴对齐的好处：对于某个对面，只需要计算一个分量即可,例如计算x分量<br><img src="/2022/06/01/GAMES101-Lecture13/16.png"></li>
-</ul>
+<h4 id="Recent-Trend：波动光学-Wave-Optics"><a href="#Recent-Trend：波动光学-Wave-Optics" class="headerlink" title="Recent Trend：波动光学 Wave Optics"></a>Recent Trend：波动光学 Wave Optics</h4><p>之前所有的计算都把光线当作粒子来计算，但光具有波粒二象性，有很多只有在把光当作波的时候才会有的性质就会被忽略，并且在尺度很小的情况下，波动性会起作用，发生干涉衍射。波动光学的BRDF结果与几何光学类似，但不连续（干涉导致）</p>
+<h2 id="程序化生成-Procedural-Appearance"><a href="#程序化生成-Procedural-Appearance" class="headerlink" title="程序化生成 Procedural Appearance"></a>程序化生成 Procedural Appearance</h2><p>而不是真正生成材质，用一定方式指导材质的生成，并且可以动态查询。（不存储，随用随算）。一般使用一些噪声函数。<br>Houdini专门做这个。</p>
 
       
 
@@ -364,7 +366,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/01/GAMES101-Lecture13/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/04/GAMES101-Lecture18/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -378,18 +380,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/06/01/GAMES101-Lecture14/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          GAMES101-Lecture14
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/05/31/GAMES101-Lecture12/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GAMES101-Lecture12</div>
+    <a href="/2022/06/03/GAMES101-Lecture17/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“GAMES101-Lecture17”</div>
       <i class="icon-circle-right"></i>
     </a>
   
