@@ -15,10 +15,36 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="相机，镜头，光场">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/1.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/2.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/3.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/4.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/5.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/6.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/7.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/8.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/9.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/10.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/11.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/12.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/13.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/14.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/15.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/16.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/17.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/18.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/19.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/20.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/21.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/22.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/23.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/24.png">
+<meta property="og:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/25.png">
 <meta property="article:published_time" content="2022-06-07T01:56:44.000Z">
-<meta property="article:modified_time" content="2022-06-07T01:59:20.069Z">
+<meta property="article:modified_time" content="2022-06-07T08:44:33.204Z">
 <meta property="article:author" content="HUNK">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/06/07/GAMES101-Lecture19/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -179,6 +205,134 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="相机，镜头，光场"><a href="#相机，镜头，光场" class="headerlink" title="相机，镜头，光场"></a>相机，镜头，光场</h1><span id="more"></span>
+<p>成像 &#x3D; 合成 + 捕捉</p>
+<h2 id="相机"><a href="#相机" class="headerlink" title="相机"></a>相机</h2><p>相机内部<br><img src="/2022/06/07/GAMES101-Lecture19/1.png"></p>
+<ul>
+<li>从小孔成像开始</li>
+<li>相机的部件<ul>
+<li>快门</li>
+<li>传感器-其上的每个点记录irradiance</li>
+<li>如果相机没“针孔”，就不可能拍照片</li>
+</ul>
+</li>
+</ul>
+<h3 id="针孔成像"><a href="#针孔成像" class="headerlink" title="针孔成像"></a>针孔成像</h3><p><img src="/2022/06/07/GAMES101-Lecture19/2.png"><br>利用小孔成像原理制作的相机即针孔相机。针孔相机无法拍出东西的深度，任何地方都是清楚的，不会有虚化。<br>之前做光线追踪基于针孔相机模型，所以得不到因为深度不同产生的模糊效果。<br>因此在渲染过程中如果模拟光线与透镜的作用，可以得到模糊虚化的效果。</p>
+<h3 id="视场-Field-of-View-FOV"><a href="#视场-Field-of-View-FOV" class="headerlink" title="视场 Field of View FOV"></a>视场 Field of View FOV</h3><p>视场指看到的范围，与两个量有关：<br>h：传感器的高度<br>f：焦距，传感器与透镜的距离<br><img src="/2022/06/07/GAMES101-Lecture19/3.png"><br>现实中，以35mm胶片为基准，通过焦距来定义视场<br><img src="/2022/06/07/GAMES101-Lecture19/4.png"></p>
+<ul>
+<li>同样大小的传感器，焦距越大，视场越窄</li>
+<li>同样的焦距，传感器越大，视场越宽</li>
+<li>传感器Sensor与胶片Film通常是等价的，但在渲染器里，sensor收集Irradiance，film决定存储为什么格式。</li>
+</ul>
+<p>传感器和相机<br><img src="/2022/06/07/GAMES101-Lecture19/5.png"></p>
+<h3 id="曝光Exposure"><a href="#曝光Exposure" class="headerlink" title="曝光Exposure"></a>曝光Exposure</h3><p>Exposure &#x3D; time × irradiance， H &#x3D; T × E</p>
+<ul>
+<li><p>曝光时间(T)由快门决定</p>
+</li>
+<li><p>Irradiance(E)</p>
+<ul>
+<li>是落在单位面积的传感器上的光能</li>
+<li>由镜头的光圈与焦距决定</li>
+</ul>
+</li>
+<li><p>控制照片亮度的三要素</p>
+<ul>
+<li>光圈大小（Aperture）：由F数控制，光圈是一种仿生学的设计，仿照人的瞳孔放大缩小。</li>
+<li>快门速度（Shutter speed）是快门开放的时间。</li>
+<li>感光度（ISO gain）是后期处理，给接收到多少光加倍，在硬件上调整是调节传感器灵敏度，或者软件上调整数字信号。</li>
+</ul>
+</li>
+<li><p>三者关系<br><img src="/2022/06/07/GAMES101-Lecture19/6.png"><br>F数越小，光圈越大；快门时间的单位为秒；ISO理解为倍数，给收到的能量加倍，一般加倍时会让噪声也加倍。</p>
+<h4 id="ISO"><a href="#ISO" class="headerlink" title="ISO"></a>ISO</h4><p>ISO是线性变化，相当于最终结果的增益。<br>放大的同时会放大噪声。</p>
+<h4 id="F数-F-Number-x2F-F-Stop-Exposure-Levels"><a href="#F数-F-Number-x2F-F-Stop-Exposure-Levels" class="headerlink" title="F数(F-Number&#x2F;F-Stop) Exposure Levels"></a>F数(F-Number&#x2F;F-Stop) Exposure Levels</h4><p>使用F数表示光圈，可理解为光圈直径的倒数。<br>写作FN或F&#x2F;N</p>
+<h4 id="快门"><a href="#快门" class="headerlink" title="快门"></a>快门</h4><p>快门打开的时间较长，或者物体运动速度较快，会导致最终照片的模糊&#x2F;扭曲。可以说模糊在某种程度上能表现出速度。<br>进光量与F数的平方成反比，与快门速度成反比</p>
+</li>
+<li><p>F数是光圈直径的倒数，进光量与光圈面积成正比，因此与F数的平方成反比</p>
+</li>
+<li><p>快门速度越快，快门打开时间越短，进光量越少<br><img src="/2022/06/07/GAMES101-Lecture19/7.png"></p>
+</li>
+<li><p>rolling shutter：物体运动速度比快门速度快<br><img src="/2022/06/07/GAMES101-Lecture19/8.png"></p>
+</li>
+<li><p>应用：</p>
+<ul>
+<li>高速摄影：帧率高，快门时间受限需要用更大光圈或者高ISO</li>
+<li>延时摄影：快门打开时间很长，光圈变小</li>
+</ul>
+</li>
+</ul>
+<h4 id="薄透镜近似-Thin-Lens-Approximation"><a href="#薄透镜近似-Thin-Lens-Approximation" class="headerlink" title="薄透镜近似 Thin Lens Approximation"></a>薄透镜近似 Thin Lens Approximation</h4><p>目前的相机都是用透镜组来构成相机镜头。真实的透镜并不是理想的，有些透镜无法将光线汇聚到一点。<br><img src="/2022/06/07/GAMES101-Lecture19/9.png"><br>理想化透镜：</p>
+<ul>
+<li><p>所有进入透镜的平行光最终与透镜焦点相交</p>
+</li>
+<li><p>穿过焦点的所有光线不改变方向</p>
+</li>
+<li><p>焦距可以任意改变</p>
+</li>
+<li><p>薄透镜方程<br><img src="/2022/06/07/GAMES101-Lecture19/10.png"><br><img src="/2022/06/07/GAMES101-Lecture19/11.png"></p>
+</li>
+</ul>
+<h4 id="散焦模糊-Defocus-Blur"><a href="#散焦模糊-Defocus-Blur" class="headerlink" title="散焦模糊 Defocus Blur"></a>散焦模糊 Defocus Blur</h4><p>为了解释景深，引入Circle of Confusion (CoC)<br>左边有一个Focal Plane，其上的东西会成像到Sensor Plane上；Object不在Focal Plane上，可能会聚焦在Image上，然后光线继续传播到Sensor Plane上，这时候在Sensor Plane上形成的圆就是CoC。<br><img src="/2022/06/07/GAMES101-Lecture19/12.png"><br>CoC的大小与光圈大小成正比。<br>由CoC得知，看到的东西是否模糊，取决于光圈的大小，大光圈容易有模糊的效果。</p>
+<h4 id="F数"><a href="#F数" class="headerlink" title="F数"></a>F数</h4><p>F数的定义是焦距除以光圈直径。<br>常见的真实镜头F数： 1.4, 2, 2.8, 4.0, 5.6, 8, 11, 16, 22, 32<br><img src="/2022/06/07/GAMES101-Lecture19/13.png"><br>光圈、f数、焦距的关系<br><img src="/2022/06/07/GAMES101-Lecture19/14.png"></p>
+<h4 id="光线追踪中使用理想透镜-Ray-Tracing-Ideal-Thin-Lenses"><a href="#光线追踪中使用理想透镜-Ray-Tracing-Ideal-Thin-Lenses" class="headerlink" title="光线追踪中使用理想透镜 Ray Tracing Ideal Thin Lenses"></a>光线追踪中使用理想透镜 Ray Tracing Ideal Thin Lenses</h4><p>定义属性：</p>
+<ul>
+<li>定义sensor的大小，透镜的属性（焦距，光圈大小），</li>
+<li>定义透镜的位置，即物距z0<br>​<img src="/2022/06/07/GAMES101-Lecture19/15.png"><br>渲染：</li>
+<li>对于sensor上的点x’</li>
+<li>在透镜上随机取样点x’’</li>
+<li>将上面两点连线后，根据透镜性质得知光线可以传播到x’’’</li>
+<li>估计x’’’到x’的radiance</li>
+</ul>
+<h3 id="景深-Depth-of-Field"><a href="#景深-Depth-of-Field" class="headerlink" title="景深 Depth of Field"></a>景深 Depth of Field</h3><p>用不同大小的光圈可以控制模糊的范围。<br>景深对应的就是CoC小的那一段，这段是清晰的。<br>真实场景中有一段深度（景深）经过透镜会在成像平面附近形成一段区域，这段区域内认为CoC是足够小的。这段就是清晰的。<br>可以简单理解成只要CoC比像素小或者差不多，画面就是清晰的。<br><img src="/2022/06/07/GAMES101-Lecture19/16.png"><br>利用景深的最远处和最近处，推导公式，把这些深度和焦距联系起来，即根据某个位置穿过透镜会到某个地方来推导。</p>
+<h3 id="光场-light-field-x2F-Lumigraph"><a href="#光场-light-field-x2F-Lumigraph" class="headerlink" title="光场 light field&#x2F;Lumigraph"></a>光场 light field&#x2F;Lumigraph</h3><p>两种命名方式都可以</p>
+<h4 id="全光函数"><a href="#全光函数" class="headerlink" title="全光函数"></a>全光函数</h4><p>能看到的所有东西</p>
+<ul>
+<li><p>Grayscale snapshot：灰度图，两个角度变量控制<img src="/2022/06/07/GAMES101-Lecture19/17.png"></p>
+</li>
+<li><p>color snapshot:引入波长，三个变量控制<img src="/2022/06/07/GAMES101-Lecture19/18.png"></p>
+</li>
+<li><p>A movie：引入时间，四个变量<img src="/2022/06/07/GAMES101-Lecture19/19.png"></p>
+</li>
+<li><p>the plenoptic function:引入三维空间坐标，7个变量<img src="/2022/06/07/GAMES101-Lecture19/20.png"></p>
+</li>
+<li><p><strong>光场的概念</strong>:从全光函数开始，从全光函数提取其中一部分的信息，只有二维位置和二维方向</p>
+</li>
+<li><p>光线的旧定义：起点与方向</p>
+</li>
+<li><p>光线的新定义：取光线上任意两点（默认方向已知）</p>
+</li>
+<li><p>光线与物体，物体包围盒上任意一点任意方向的发光情况——这一信息即为光场</p>
+</li>
+<li><p>通过光场，从任意位置都可以看向物体，都知道看到的结果，即给定两个光场的点可以得到物体任意位置的观测结果。</p>
+</li>
+<li><p>光场的位置在盒子上还是在物体表面上？不需要具体知道</p>
+</li>
+<li><p>对于下图，知道平面上的参数化信息就行，不需要知道右边</p>
+</li>
+<li><p>也可以定义两个平行平面，通过两平面上两点定义一条光线：即(u, v) (s, t)<br><img src="/2022/06/07/GAMES101-Lecture19/21.png"></p>
+</li>
+<li><p>光场是一个经典的参数化表示方法<br>光场的两种理解<br><img src="/2022/06/07/GAMES101-Lecture19/22.png"></p>
+</li>
+<li><p>固定平面uv的点，看向所有的st可能点，相当于同一视觉看向世界的不同点，最终看到完整的物体。</p>
+</li>
+<li><p>固定平面st的点，即从不同uv点看向st的某一固定点，相当于在不同视觉看同一个物体，得到同一物体的不同角度。</p>
+</li>
+<li><p>苍蝇的眼睛叫复眼，就是在记录光场，在照片中任意的像素记录的是irradiance，不区分不同方向的光，但是复眼记录的是不同方向的光的分量，即radiance。</p>
+</li>
+<li><p>看一个像素，其实是在看穿过这个像素的不同方向的光。！<br><img src="/2022/06/07/GAMES101-Lecture19/23.png"></p>
+</li>
+</ul>
+<h3 id="光场相机"><a href="#光场相机" class="headerlink" title="光场相机"></a>光场相机</h3><p>微透镜原理，使用微透镜将不同方向的光分开。<br>功能：先拍照，后期再重新聚焦。</p>
+<p>光场照相机原理：光场。</p>
+<ul>
+<li>普通相机中黄色的就是像素。光场照相机将像素变为微透镜，微透镜将不同方向的光分散开。</li>
+<li>普通照相机记录一个像素，光场照相机计算一片像素。<br><img src="/2022/06/07/GAMES101-Lecture19/24.png"></li>
+</ul>
+<p>将每个透镜选择一条光线，将其结果记录为像素值。就相当于用相机拍摄特定方向的照片。通过取不同方向的光线可以虚拟的移动摄像机的位置。<br><img src="/2022/06/07/GAMES101-Lecture19/25.png"><br>重新聚焦的思想就是，聚焦后知道光线该怎么变化，然后去查询对应的光线的信息。</p>
+<p>光场照相机的缺点：</p>
+<ul>
+<li>分辨率不足</li>
+<li>高成本，难设计</li>
+<li>像素总个数和一个像素分成多少个方向需要权衡</li>
+</ul>
 
       
 
@@ -271,6 +425,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/06/07/GAMES101-Lecture20/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          GAMES101-Lecture20
+        
+      </div>
+    </a>
   
   
     <a href="/2022/06/04/GAMES101-Lecture18/" id="article-nav-older" class="article-nav-link-wrap">
