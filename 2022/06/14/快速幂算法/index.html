@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022 | Hexo</title>
+  <title>快速幂算法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2022/index.html">
+  <meta name="description" content="快速幂算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速幂算法">
+<meta property="og:url" content="http://example.com/2022/06/14/%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="快速幂算法">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/06/14/%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95/1.png">
+<meta property="article:published_time" content="2022-06-14T06:54:45.000Z">
+<meta property="article:modified_time" content="2022-06-14T08:05:08.883Z">
 <meta property="article:author" content="HUNK">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/06/14/%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,295 +160,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-快速幂算法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      快速幂算法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/14/%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95/" class="archive-article-date">
+
+        
+        <a href="/2022/06/14/%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95/" class="archive-article-date">
   	<time datetime="2022-06-14T06:54:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/14/%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95/">快速幂算法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="快速幂算法"><a href="#快速幂算法" class="headerlink" title="快速幂算法"></a>快速幂算法</h1><span id="more"></span>
+<h2 id="整数运算"><a href="#整数运算" class="headerlink" title="整数运算"></a>整数运算</h2><p>基本原理：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(a + b) % p = (a % p + b % p) % p</span><br><span class="line">(a - b) % p = (a % p - b % p) % p</span><br><span class="line">(a * b) % p = (a % p * b % p) % p</span><br></pre></td></tr></table></figure>
+<p>结尾的mod p操作是为了保证结果不超过p，多个因子连续的乘积取模的结果等于每个因子取模后的乘积在取模，通过提前取模可以避免结果过大报表</p>
+<h2 id="a-b"><a href="#a-b" class="headerlink" title="a*b"></a>a*b</h2><ul>
+<li>快速乘法基本思想：二进制和乘法分配律结合</li>
+<li>例：<ul>
+<li>13 &#x3D; (1101)2</li>
+<li>4 * 13 &#x3D; 4 * (1102)2</li>
+<li>4 * 13 &#x3D; 4 * (1000 + 100 + 1)2<br>通过分配律展开，快速判断当前位是1还是0，推断是否做求和操作，每次移动到下一位时，对ans进行*2操作，等待是否求和。可以看作时二分思想的应用，将b进行2分从而减少了不必要的计算，时间复杂度为log(n)</li>
+</ul>
+</li>
+</ul>
+<h2 id="a-b-1"><a href="#a-b-1" class="headerlink" title="a^b"></a>a^b</h2><ul>
+<li>快速幂是对快速乘法的特例，指数的相加表示为底数的相乘</li>
+<li>4 ^ 13 &#x3D; (4 ^ 8) * (4 ^ 4) * (4 ^ 1)</li>
+<li>从O(n)改进为O(logN)</li>
+</ul>
+<p>代码示例</p>
+<ul>
+<li>快速乘法：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//不取模</span><br><span class="line">int qmul(int a, int b)&#123;</span><br><span class="line">    int ans = 0;</span><br><span class="line">    while(b)&#123;</span><br><span class="line">        if(b &amp; 1) ans += a;</span><br><span class="line">        b &gt;&gt;= 1;</span><br><span class="line">        a &lt;&lt;= 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//取模</span><br><span class="line">int qmul_mod(int a, int b, int mod)&#123;</span><br><span class="line">    int ans = 0;</span><br><span class="line">    while(b)&#123;</span><br><span class="line">        if((b %= mod) &amp; 1) ans += a %= mod;</span><br><span class="line">        b &gt;&gt;= 1;</span><br><span class="line">        a &lt;&lt;= 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans % mod;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>快速幂<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//不取模</span><br><span class="line">int qpow(int a, int b)&#123;</span><br><span class="line">    if(a == 0) return 0;</span><br><span class="line">    int ans = 1;</span><br><span class="line">    while(b)&#123;</span><br><span class="line">        if(b &amp; 1) ans *= a;</span><br><span class="line">        b &gt;&gt;= 1;</span><br><span class="line">        a *= a;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line">//取模</span><br><span class="line">int qpow_mod(int a, int b, int mod)&#123;</span><br><span class="line">    if(a == 0) return 0;</span><br><span class="line">    int ans = 1;</span><br><span class="line">    while(b)&#123;</span><br><span class="line">        if(b &amp; 1) ans = (ans % mod) * (a % mod);</span><br><span class="line">        b &gt;&gt;= 1;</span><br><span class="line">        a *= a % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans % mod;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="矩阵幂"><a href="#矩阵幂" class="headerlink" title="矩阵幂"></a>矩阵幂</h2><p>底数改为矩阵的快速幂<br><img src="/2022/06/14/%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95/1.png"><br>正常的矩阵乘法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r = a * e + b * g;</span><br><span class="line">s = a * f + b * h;</span><br><span class="line">t = c * e + d * g;</span><br><span class="line">u = c * f + d * h;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<h3 id="Strassen算法"><a href="#Strassen算法" class="headerlink" title="Strassen算法"></a>Strassen算法</h3><p>对于指数过大的形式（N&gt;300），使用Strassen算法可以将矩阵计算的8次乘法改为7次乘法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">p1 = a * (f - h)</span><br><span class="line">p2 = (a + b) * h</span><br><span class="line">p3 = (c + d) * e</span><br><span class="line">p4 = d * (g - e)</span><br><span class="line">p5 = (a + d) * (e + h)</span><br><span class="line">p6 = (b - d) * (g + h)</span><br><span class="line">p7 = (a - c) * (e + f)</span><br><span class="line"></span><br><span class="line">r = p5 + p4 + p6 - p2</span><br><span class="line">s = p1 + p2</span><br><span class="line">t = p3 + p4</span><br><span class="line">u = p5 + p1 - p3 - p7</span><br></pre></td></tr></table></figure>
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/14/%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/08/GAMES101-Lecture21/" class="archive-article-date">
-  	<time datetime="2022-06-08T11:43:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/06/08/GAMES101-Lecture21/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GAMES101-Lecture21</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/08/GAMES101-Lecture21/">GAMES101-Lecture21</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/07/GAMES101-Lecture20/" class="archive-article-date">
-  	<time datetime="2022-06-07T05:38:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/07/GAMES101-Lecture20/">GAMES101-Lecture20</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/07/GAMES101-Lecture19/" class="archive-article-date">
-  	<time datetime="2022-06-07T01:56:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/07/GAMES101-Lecture19/">GAMES101-Lecture19</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/04/GAMES101-Lecture18/" class="archive-article-date">
-  	<time datetime="2022-06-04T07:26:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/04/GAMES101-Lecture18/">GAMES101-Lecture18</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/03/GAMES101-Lecture17/" class="archive-article-date">
-  	<time datetime="2022-06-03T07:05:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/03/GAMES101-Lecture17/">GAMES101-Lecture17</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/03/GAMES101-HomeWork5/" class="archive-article-date">
-  	<time datetime="2022-06-03T06:10:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/03/GAMES101-HomeWork5/">GAMES101-HomeWork5</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/02/GAMES101-Lecture16/" class="archive-article-date">
-  	<time datetime="2022-06-02T06:33:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/02/GAMES101-Lecture16/">GAMES101-Lecture16</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/02/GAMES101-Lecture15/" class="archive-article-date">
-  	<time datetime="2022-06-02T02:05:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/02/GAMES101-Lecture15/">GAMES101-Lecture15</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/01/GAMES101-Lecture14/" class="archive-article-date">
-  	<time datetime="2022-06-01T07:11:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/06/01/GAMES101-Lecture14/">GAMES101-Lecture14</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2022/page/2/">2</a><a class="extend next" rel="next" href="/archives/2022/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -466,8 +358,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
